@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install -e ./vigil-core[dev]
+          pip install -e ./vigil-licenses[dev]
+          pip install -e ./vigil-cli[dev]
+          pip install pytest pytest-asyncio
+
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff check vigil-core/src vigil-licenses/src vigil-cli/src
+
+      - name: Run tests
+        run: pytest tests/ -v
+
+  # Dogfood: use Vigil to check Vigil's own dependencies
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Vigil
+        run: |
+          pip install -e ./vigil-core
+          pip install -e ./vigil-licenses
+          pip install -e ./vigil-cli
+      - name: Run license compliance check
+        run: vigil scan --policy vigil.yaml
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    needs: [test]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write  # Required for trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build packages
+        run: |
+          pip install hatch
+          cd vigil-core && hatch build && cd ..
+          cd vigil-licenses && hatch build && cd ..
+          cd vigil-cli && hatch build && cd ..
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: |
+            vigil-core/dist
+            vigil-licenses/dist
+            vigil-cli/dist

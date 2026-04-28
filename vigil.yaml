@@ -1,0 +1,30 @@
+# vigil.yaml — Vigil License Policy
+# Place this file in your project root.
+# Run: vigil scan --policy vigil.yaml
+
+policy:
+  # Only these licenses are allowed. Remove this key to allow all.
+  allow:
+    - MIT
+    - Apache-2.0
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - ISC
+    - Unlicense
+    - CC0-1.0
+
+  # These licenses will always fail the compliance check.
+  block:
+    - GPL-2.0
+    - GPL-3.0
+    - AGPL-3.0
+    - SSPL-1.0
+
+  # These licenses will generate warnings but not fail the check.
+  warn:
+    - LGPL-2.1
+    - LGPL-3.0
+    - MPL-2.0
+
+  # Fail the check if a package's license cannot be identified.
+  fail_on_unknown: false

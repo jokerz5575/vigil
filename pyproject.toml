@@ -1,0 +1,20 @@
+[tool.hatch.env]
+requires = ["hatch-monorepo"]
+
+# Root-level dev tooling config shared across all packages
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+ignore_missing_imports = true
