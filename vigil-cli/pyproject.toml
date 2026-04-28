@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Command-line interface for the Vigil compliance toolkit"
 readme = "README.md"
 license = { text = "Apache-2.0" }
-authors = [{ name = "Your Name", email = "you@example.com" }]
+authors = [{ name = "Schmidt Peter Daniel", email = "peterschmidt5575@gmail.com" }]
 keywords = ["compliance", "cli", "license", "sbom", "supply-chain"]
 classifiers = [
     "Development Status :: 3 - Alpha",
