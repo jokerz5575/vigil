@@ -31,6 +31,7 @@ Vigil brings it all under one roof — installable piece by piece, or all at onc
 
 ## Quick Start
 
+**Install the CLI:**
 ```bash
 pip install vigil-licenses
 ```
@@ -45,6 +46,31 @@ vigil licenses check
 # Generate a compliance report
 vigil licenses report --format html --output report.html
 ```
+
+---
+
+## GitHub Action
+
+Add Vigil to your CI pipeline in seconds:
+
+```yaml
+# .github/workflows/compliance.yml
+name: License Compliance
+on: [push, pull_request]
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: schmidtpeterdaniel/vigil-action@v1
+        with:
+          policy-file: vigil.yaml
+          format: html
+          upload-report: true
+```
+
+See [vigil-action](https://github.com/schmidtpeterdaniel/vigil-action) for full documentation.
 
 ---
 
