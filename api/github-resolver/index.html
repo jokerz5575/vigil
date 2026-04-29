@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://jokerz5575.github.io/vigil/api/reporter/">
+        <link rel="canonical" href="https://jokerz5575.github.io/vigil/api/github-resolver/">
       
       
-        <link rel="prev" href="../github-resolver/">
+        <link rel="prev" href="../scanner/">
       
       
-        <link rel="next" href="../models/">
+        <link rel="next" href="../reporter/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Reporter - Vigil</title>
+        <title>GitHub Resolver - Vigil</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate_report-reportformat" class="md-skip">
+        <a href="#githublicenseresolver" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reporter
+              GitHub Resolver
             
           </span>
         </div>
@@ -729,34 +729,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../github-resolver/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitHub Resolver
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -776,7 +748,7 @@
   <span class="md-ellipsis">
     
   
-    Reporter
+    GitHub Resolver
   
 
     
@@ -794,7 +766,7 @@
   <span class="md-ellipsis">
     
   
-    Reporter
+    GitHub Resolver
   
 
     
@@ -820,10 +792,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reportformat" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ReportFormat
+        How it works
       
     </span>
   </a>
@@ -831,10 +803,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate_reportreport-fmt-output_path" class="md-nav__link">
+  <a href="#githublicenseresult" class="md-nav__link">
     <span class="md-ellipsis">
       
-        generate_report(report, fmt, output_path)
+        GitHubLicenseResult
       
     </span>
   </a>
@@ -842,22 +814,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-examples" class="md-nav__link">
+  <a href="#githublicenseresolver_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage Examples
+        GitHubLicenseResolver
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage Examples">
+    <nav class="md-nav" aria-label="GitHubLicenseResolver">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#terminal-output" class="md-nav__link">
+  <a href="#constructor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal output
+        Constructor
       
     </span>
   </a>
@@ -865,10 +837,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#json-output" class="md-nav__link">
+  <a href="#resolvepackage_name-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JSON output
+        resolve(package_name, version)
       
     </span>
   </a>
@@ -876,10 +848,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#html-output" class="md-nav__link">
+  <a href="#context-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTML output
+        Context manager
       
     </span>
   </a>
@@ -892,52 +864,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#private-helpers" class="md-nav__link">
+  <a href="#repository-scoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Private Helpers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Private Helpers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_render_terminalreport" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        _render_terminal(report)
+        Repository scoring
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_render_jsonreport" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#version-tag-detection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        _render_json(report)
+        Version tag detection
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_render_htmlreport" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-packageresolver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        _render_html(report)
+        Integration with PackageResolver
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
   
 </li>
       
@@ -945,6 +911,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reporter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reporter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1039,10 +1033,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reportformat" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ReportFormat
+        How it works
       
     </span>
   </a>
@@ -1050,10 +1044,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate_reportreport-fmt-output_path" class="md-nav__link">
+  <a href="#githublicenseresult" class="md-nav__link">
     <span class="md-ellipsis">
       
-        generate_report(report, fmt, output_path)
+        GitHubLicenseResult
       
     </span>
   </a>
@@ -1061,22 +1055,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-examples" class="md-nav__link">
+  <a href="#githublicenseresolver_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage Examples
+        GitHubLicenseResolver
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage Examples">
+    <nav class="md-nav" aria-label="GitHubLicenseResolver">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#terminal-output" class="md-nav__link">
+  <a href="#constructor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal output
+        Constructor
       
     </span>
   </a>
@@ -1084,10 +1078,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#json-output" class="md-nav__link">
+  <a href="#resolvepackage_name-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JSON output
+        resolve(package_name, version)
       
     </span>
   </a>
@@ -1095,10 +1089,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#html-output" class="md-nav__link">
+  <a href="#context-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTML output
+        Context manager
       
     </span>
   </a>
@@ -1111,52 +1105,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#private-helpers" class="md-nav__link">
+  <a href="#repository-scoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Private Helpers
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Private Helpers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_render_terminalreport" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        _render_terminal(report)
+        Repository scoring
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_render_jsonreport" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#version-tag-detection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        _render_json(report)
+        Version tag detection
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_render_htmlreport" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-packageresolver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        _render_html(report)
+        Integration with PackageResolver
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1180,56 +1168,108 @@
   
 
 
-<h1 id="generate_report-reportformat"><code>generate_report</code> &amp; <code>ReportFormat</code><a class="headerlink" href="#generate_report-reportformat" title="Permanent link">&para;</a></h1>
-<p><strong>Module:</strong> <code>vigil_licenses.reporter</code><br />
-<strong>Source:</strong> <code>vigil-licenses/src/vigil_licenses/reporter.py</code></p>
-<p>The reporter module converts a <code>ComplianceReport</code> into one of three output formats:
-a rich terminal table, a JSON string, or a self-contained HTML page.</p>
+<h1 id="githublicenseresolver"><code>GitHubLicenseResolver</code><a class="headerlink" href="#githublicenseresolver" title="Permanent link">&para;</a></h1>
+<p><strong>Module:</strong> <code>vigil_core.github_resolver</code>
+<strong>Source:</strong> <code>vigil-core/src/vigil_core/github_resolver.py</code></p>
+<p>The GitHub resolver is a fallback back-end that kicks in automatically
+when a package's license cannot be determined from its PyPI metadata.
+It searches GitHub for the canonical repository, finds the release tag
+that matches the installed version, and reads the LICENSE file at that
+exact ref — returning both the SPDX identifier <strong>and</strong> a version-specific
+permalink to the license text.</p>
 <hr />
-<h2 id="reportformat"><code>ReportFormat</code><a class="headerlink" href="#reportformat" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ReportFormat</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">TERMINAL</span> <span class="o">=</span> <span class="s2">&quot;terminal&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">JSON</span>     <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">HTML</span>     <span class="o">=</span> <span class="s2">&quot;html&quot;</span>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Package with unknown license
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>         │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>         ▼
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  Search GitHub API  GET /search/repositories?q={name}+language:python
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>         │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>         ▼
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  Score candidates   name similarity · stars · fork/archived penalties
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   score ≥ 0.45?  ──No──▶  return None
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>         │Yes
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>         ▼
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  Find version tag   GET /repos/{owner}/{repo}/tags
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  tries: v{ver}, {ver}, {repo}-{ver}, release/v{ver}, …
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>         │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>   tag found? ──No──▶  use default branch (noted in source_url)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>         │Yes
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>         ▼
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  Fetch license      GET /repos/{owner}/{repo}/license?ref={tag}
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>         │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  SPDX present?  ──No──▶  return None
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>         │Yes
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>         ▼
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  GitHubLicenseResult(spdx_id, source_url, …)
+</span></code></pre></div>
+<hr />
+<h2 id="githublicenseresult"><code>GitHubLicenseResult</code><a class="headerlink" href="#githublicenseresult" title="Permanent link">&para;</a></h2>
+<p>A <strong>frozen dataclass</strong> returned on every successful lookup.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_core.github_resolver</span><span class="w"> </span><span class="kn">import</span> <span class="n">GitHubLicenseResult</span>
 </span></code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>String</th>
+<th>Field</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ReportFormat.TERMINAL</code></td>
-<td><code>"terminal"</code></td>
-<td>Renders a rich table directly to stdout using the <code>rich</code> library</td>
+<td><code>spdx_id</code></td>
+<td><code>str</code></td>
+<td>SPDX identifier, e.g. <code>"Apache-2.0"</code></td>
 </tr>
 <tr>
-<td><code>ReportFormat.JSON</code></td>
-<td><code>"json"</code></td>
-<td>Returns a pretty-printed JSON string (Pydantic <code>model_dump_json</code>)</td>
+<td><code>license_name</code></td>
+<td><code>str</code></td>
+<td>Full name, e.g. <code>"Apache License 2.0"</code></td>
 </tr>
 <tr>
-<td><code>ReportFormat.HTML</code></td>
-<td><code>"html"</code></td>
-<td>Returns a self-contained HTML page rendered from a Jinja2 template</td>
+<td><code>source_url</code></td>
+<td><code>str</code></td>
+<td><strong>Version-specific</strong> permalink to the LICENSE file, e.g. <code>https://github.com/psf/requests/blob/v2.31.0/LICENSE</code>. Falls back to the default-branch URL when no matching tag is found (with a note appended).</td>
+</tr>
+<tr>
+<td><code>repo_url</code></td>
+<td><code>str</code></td>
+<td><code>https://github.com/owner/repo</code></td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td><code>str</code></td>
+<td>Git ref used, e.g. <code>"v2.31.0"</code> or <code>"main"</code></td>
+</tr>
+<tr>
+<td><code>ref_is_version_tag</code></td>
+<td><code>bool</code></td>
+<td><code>True</code> when a release tag matching the version was found</td>
+</tr>
+<tr>
+<td><code>confidence</code></td>
+<td><code>float</code></td>
+<td>Repository-match score in <code>[0.0, 1.0]</code></td>
 </tr>
 </tbody>
 </table>
-<p>Because <code>ReportFormat</code> extends <code>str</code>, the values can be compared to plain strings:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span> <span class="o">==</span> <span class="s2">&quot;terminal&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span> <span class="o">==</span> <span class="s2">&quot;html&quot;</span>
-</span></code></pre></div>
 <hr />
-<h2 id="generate_reportreport-fmt-output_path"><code>generate_report(report, fmt, output_path)</code><a class="headerlink" href="#generate_reportreport-fmt-output_path" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_report</span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">fmt</span><span class="p">:</span> <span class="n">ReportFormat</span> <span class="o">=</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<h2 id="githublicenseresolver_1"><code>GitHubLicenseResolver</code><a class="headerlink" href="#githublicenseresolver_1" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_core.github_resolver</span><span class="w"> </span><span class="kn">import</span> <span class="n">GitHubLicenseResolver</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">resolver</span> <span class="o">=</span> <span class="n">GitHubLicenseResolver</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;ghp_...&quot;</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s2">&quot;requests&quot;</span><span class="p">,</span> <span class="s2">&quot;2.31.0&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">spdx_id</span><span class="p">)</span>    <span class="c1"># &quot;Apache-2.0&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">source_url</span><span class="p">)</span> <span class="c1"># &quot;https://github.com/psf/requests/blob/v2.31.0/LICENSE&quot;</span>
+</span></code></pre></div>
+<h3 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">GitHubLicenseResolver</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">min_confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.45</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -1242,182 +1282,221 @@ a rich terminal table, a JSON string, or a self-contained HTML page.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>report</code></td>
-<td><code>ComplianceReport</code></td>
-<td>—</td>
-<td>The report object to render</td>
-</tr>
-<tr>
-<td><code>fmt</code></td>
-<td><code>ReportFormat</code></td>
-<td><code>TERMINAL</code></td>
-<td>Output format</td>
-</tr>
-<tr>
-<td><code>output_path</code></td>
-<td><code>str \| Path \| None</code></td>
+<td><code>token</code></td>
+<td><code>str \| None</code></td>
 <td><code>None</code></td>
-<td>If provided, the rendered content is written to this file path (not applicable for <code>TERMINAL</code>)</td>
+<td>GitHub personal-access token. Falls back to <code>GITHUB_TOKEN</code> or <code>VIGIL_GITHUB_TOKEN</code> env vars. Without a token, the API is limited to 60 requests/hour.</td>
+</tr>
+<tr>
+<td><code>min_confidence</code></td>
+<td><code>float</code></td>
+<td><code>0.45</code></td>
+<td>Minimum name-similarity score required before a candidate repository is accepted. Higher values improve precision at the cost of recall.</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td><code>float</code></td>
+<td><code>10.0</code></td>
+<td>HTTP timeout in seconds for each individual API call.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Return value:</strong></p>
-<ul>
-<li><code>TERMINAL</code> — renders directly to stdout and returns <code>""</code>.</li>
-<li><code>JSON</code> — returns the JSON string.</li>
-<li><code>HTML</code> — returns the HTML string.</li>
-</ul>
-<p>When <code>output_path</code> is given for <code>JSON</code> or <code>HTML</code>, the content is <strong>both</strong> returned
-<em>and</em> written to disk.</p>
-<hr />
-<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h2>
-<h3 id="terminal-output">Terminal output<a class="headerlink" href="#terminal-output" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Prints a rich table to the terminal, returns &quot;&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span><span class="p">)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>
-</span></code></pre></div>
-<p>The terminal renderer produces:</p>
-<ul>
-<li>A summary panel showing the project name.</li>
-<li>A "License Breakdown" table listing each unique SPDX ID and the number of packages using it.</li>
-<li>A "License Issues" table showing every conflict with severity badge, package name,
-  SPDX ID, reason, and recommendation.</li>
-<li>A final pass/fail line in green (no conflicts) or red/yellow (errors/warnings).</li>
-</ul>
-<h3 id="json-output">JSON output<a class="headerlink" href="#json-output" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">String only</label><label for="__tabbed_1_2">Write to file</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">json_str</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span><span class="p">)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;total_dependencies&quot;</span><span class="p">])</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;conflicts&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;severity&quot;</span><span class="p">])</span>   <span class="c1"># &quot;error&quot; or &quot;warning&quot;</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">json_str</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;report.json&quot;</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># report.json is written; json_str contains the same content</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<p>The JSON schema mirrors the Pydantic model structure.  Enum values are serialised as
-their lowercase string equivalents (<code>"error"</code>, <code>"warning"</code>, <code>"permissive"</code>, etc.).</p>
-<h3 id="html-output">HTML output<a class="headerlink" href="#html-output" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">String only</label><label for="__tabbed_2_2">Write to file</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">html</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">assert</span> <span class="s2">&quot;&lt;!DOCTYPE html&gt;&quot;</span> <span class="ow">in</span> <span class="n">html</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">assert</span> <span class="n">report</span><span class="o">.</span><span class="n">project_name</span> <span class="ow">in</span> <span class="n">html</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;report.html&quot;</span><span class="p">)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Open report.html in a browser — no server required</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Self-contained HTML</p>
-<p>The HTML report uses <strong>no external CDN dependencies</strong>.  All CSS is inlined in a
-<code>&lt;style&gt;</code> block and the layout is achieved with a small Bootstrap-inspired
-stylesheet embedded directly in the <code>&lt;head&gt;</code>.  The file can be opened from the
-filesystem (<code>file://…</code>) or attached to a CI artifact without any network access.</p>
+<div class="admonition tip">
+<p class="admonition-title">Getting a token</p>
+<p>Go to <a href="https://github.com/settings/tokens">github.com/settings/tokens</a> and
+create a <strong>classic token</strong> or a <strong>fine-grained token</strong> with no scopes — public
+repository read access is anonymous and does not require any permission grant.</p>
 </div>
 <hr />
-<h2 id="private-helpers">Private Helpers<a class="headerlink" href="#private-helpers" title="Permanent link">&para;</a></h2>
-<p>These functions are not part of the public API but are documented here for contributors.</p>
-<h3 id="_render_terminalreport"><code>_render_terminal(report)</code><a class="headerlink" href="#_render_terminalreport" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_terminal</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<h3 id="resolvepackage_name-version"><code>resolve(package_name, version)</code><a class="headerlink" href="#resolvepackage_name-version" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GitHubLicenseResult</span> <span class="o">|</span> <span class="kc">None</span>
 </span></code></pre></div>
-<p>Uses <code>rich.console.Console</code> and <code>rich.table.Table</code> to render the compliance report
-to stdout.  The function writes directly to the console and returns <code>None</code>.  It is
-called by <code>generate_report()</code> when <code>fmt == ReportFormat.TERMINAL</code>.</p>
-<h3 id="_render_jsonreport"><code>_render_json(report)</code><a class="headerlink" href="#_render_jsonreport" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_json</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<p>Attempt to resolve the license for <code>package_name</code> at <code>version</code>.</p>
+<ul>
+<li>Returns a <code>GitHubLicenseResult</code> on success.</li>
+<li>Returns <code>None</code> when: no matching repo found, confidence too low, rate
+  limited, no license file in the repo, or any network error.</li>
+<li>Results are <strong>cached in memory</strong>: repeated calls for the same
+  <code>(package_name, version)</code> pair never trigger additional HTTP requests.</li>
+</ul>
+<hr />
+<h3 id="context-manager">Context manager<a class="headerlink" href="#context-manager" title="Permanent link">&para;</a></h3>
+<p>The resolver wraps an <code>httpx.Client</code> connection pool.  Use it as a context
+manager when you control the lifecycle:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">with</span> <span class="n">GitHubLicenseResolver</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;ghp_...&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">resolver</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;8.1.7&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Delegates to Pydantic:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">return</span> <span class="n">report</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span></code></pre></div>
-<h3 id="_render_htmlreport"><code>_render_html(report)</code><a class="headerlink" href="#_render_htmlreport" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_html</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Renders the module-level <code>_HTML_TEMPLATE</code> string using <code>jinja2.Template</code>.  The
-template receives the following context variables:</p>
+<p>Or call <code>resolver.close()</code> manually when done.</p>
+<hr />
+<h2 id="repository-scoring">Repository scoring<a class="headerlink" href="#repository-scoring" title="Permanent link">&para;</a></h2>
+<p>The resolver scores each search result on a <code>[0.0, 1.0]</code> scale and rejects
+candidates below <code>min_confidence</code>.</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
+<th>Signal</th>
+<th>Weight</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>title_suffix</code></td>
-<td><code>str</code></td>
-<td><code>" — &lt;project_name&gt;"</code> or <code>""</code></td>
+<td>Exact name match (<code>name == pkg</code>)</td>
+<td>1.0 base</td>
 </tr>
 <tr>
-<td><code>generated_at</code></td>
-<td><code>str</code></td>
-<td>Formatted as <code>YYYY-MM-DD HH:MM UTC</code></td>
+<td>Hyphen / underscore variant</td>
+<td>0.92 base</td>
 </tr>
 <tr>
-<td><code>total</code></td>
-<td><code>int</code></td>
-<td><code>report.total_dependencies</code></td>
+<td>Name starts with <code>pkg-</code> or <code>pkg_</code></td>
+<td>0.75 base</td>
 </tr>
 <tr>
-<td><code>license_count</code></td>
-<td><code>int</code></td>
-<td>Number of unique SPDX IDs in <code>license_summary</code></td>
+<td>Name ends with <code>-pkg</code> or <code>_pkg</code></td>
+<td>0.65 base</td>
 </tr>
 <tr>
-<td><code>error_count</code></td>
-<td><code>int</code></td>
-<td>Number of <code>ERROR</code>-severity conflicts</td>
+<td><code>pkg</code> appears anywhere in name</td>
+<td>0.55 base</td>
 </tr>
 <tr>
-<td><code>warn_count</code></td>
-<td><code>int</code></td>
-<td>Number of <code>WARNING</code>-severity conflicts</td>
+<td>Stars (log-scaled popularity bonus)</td>
+<td>up to +0.15</td>
 </tr>
 <tr>
-<td><code>conflicts</code></td>
-<td><code>list[LicenseConflict]</code></td>
-<td>Full list of conflicts</td>
+<td>Fork</td>
+<td>−0.25</td>
 </tr>
 <tr>
-<td><code>license_summary</code></td>
-<td><code>list[tuple[str, int]]</code></td>
-<td>License counts sorted descending</td>
+<td>Archived</td>
+<td>−0.10</td>
 </tr>
 <tr>
-<td><code>unknown</code></td>
-<td><code>list[str]</code></td>
-<td><code>report.unknown_licenses</code></td>
+<td>Package name in org/owner name</td>
+<td>+0.05</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Known precision limitation</p>
+<p>Some packages have their canonical repo under a different name (e.g.
+<code>hatchling</code> lives in <code>pypa/hatch</code>).  When the correct repo scores below the
+threshold and a less-relevant but similarly-named repo scores above it, a
+false positive may result.</p>
+<p><strong>v1.1 fix:</strong> cross-validate the matched repo URL against the package's PyPI
+<code>Home-page</code> / <code>Project-URL</code> metadata before accepting the match.</p>
+</div>
+<hr />
+<h2 id="version-tag-detection">Version tag detection<a class="headerlink" href="#version-tag-detection" title="Permanent link">&para;</a></h2>
+<p>For a package at version <code>2.31.0</code>, the resolver tries these tag patterns
+<strong>in order</strong> and takes the first match:</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Pattern</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>v{ver}</code></td>
+<td><code>v2.31.0</code> ← most common</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>{ver}</code></td>
+<td><code>2.31.0</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>v{ver}.0</code></td>
+<td><code>v2.31.0</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>{ver}.0</code></td>
+<td><code>2.31.0.0</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>{repo}-{ver}</code></td>
+<td><code>requests-2.31.0</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>{repo}-v{ver}</code></td>
+<td><code>requests-v2.31.0</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>release-{ver}</code></td>
+<td><code>release-2.31.0</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>release/{ver}</code></td>
+<td><code>release/2.31.0</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>release/v{ver}</code></td>
+<td><code>release/v2.31.0</code></td>
+</tr>
+<tr>
+<td>—</td>
+<td><em>(fallback)</em></td>
+<td>default branch (<code>main</code> / <code>master</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>When the fallback is used, <code>result.ref_is_version_tag</code> is <code>False</code> and
+the source URL includes a note: <code>…  [branch: main, no version tag found]</code>.</p>
+<hr />
+<h2 id="integration-with-packageresolver">Integration with <code>PackageResolver</code><a class="headerlink" href="#integration-with-packageresolver" title="Permanent link">&para;</a></h2>
+<p>The resolver is injected into <code>PackageResolver</code> automatically by <code>LicenseScanner</code>
+when a GitHub token is available.  You can also construct it manually:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_core.github_resolver</span><span class="w"> </span><span class="kn">import</span> <span class="n">GitHubLicenseResolver</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_core.package_resolver</span><span class="w"> </span><span class="kn">import</span> <span class="n">PackageResolver</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_core.license_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">LicenseDatabase</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">gh</span> <span class="o">=</span> <span class="n">GitHubLicenseResolver</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;ghp_...&quot;</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">resolver</span> <span class="o">=</span> <span class="n">PackageResolver</span><span class="p">(</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">license_db</span><span class="o">=</span><span class="n">LicenseDatabase</span><span class="p">(),</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">github_resolver</span><span class="o">=</span><span class="n">gh</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">deps</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve_installed</span><span class="p">()</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">:</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="k">if</span> <span class="n">dep</span><span class="o">.</span><span class="n">license_resolved_by</span> <span class="o">==</span> <span class="s2">&quot;github&quot;</span><span class="p">:</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dep</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">dep</span><span class="o">.</span><span class="n">license_spdx</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">dep</span><span class="o">.</span><span class="n">license_source_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Search limit</th>
+<th>Other API calls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unauthenticated</td>
+<td>10 / minute</td>
+<td>60 / hour</td>
+</tr>
+<tr>
+<td>Authenticated (<code>GITHUB_TOKEN</code>)</td>
+<td>30 / minute</td>
+<td>5 000 / hour</td>
+</tr>
+</tbody>
+</table>
+<p>The resolver logs a <code>WARNING</code> when rate-limited and returns <code>None</code> for
+affected packages — the rest of the scan continues uninterrupted.</p>
 
 
 
@@ -1505,7 +1584,7 @@ template receives the following context variables:</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../github-resolver/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GitHub Resolver">
+          <a href="../scanner/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LicenseScanner &amp; Policy">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1515,20 +1594,20 @@ template receives the following context variables:</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                GitHub Resolver
+                LicenseScanner & Policy
               </div>
             </div>
           </a>
         
         
           
-          <a href="../models/" class="md-footer__link md-footer__link--next" aria-label="Next: Models">
+          <a href="../reporter/" class="md-footer__link md-footer__link--next" aria-label="Next: Reporter">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Models
+                Reporter
               </div>
             </div>
             <div class="md-footer__button md-icon">
