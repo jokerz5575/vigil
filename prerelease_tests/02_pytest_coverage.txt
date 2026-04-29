@@ -477,13 +477,13 @@ _______________ coverage: platform linux, python 3.14.4-final-0 ________________
 
 Name                                            Stmts   Miss Branch BrPart  Cover   Missing
 -------------------------------------------------------------------------------------------
-vigil-core/src/vigil_core/license_db.py            36      0     14      0   100%
-vigil-core/src/vigil_core/models.py                74      0      4      0   100%
-vigil-core/src/vigil_core/package_resolver.py      59      3     24      4    92%   30->28, 55->49, 77, 93->90, 110-111
-vigil-licenses/src/vigil_licenses/reporter.py      72      2     26      4    94%   62->64, 72, 110, 126->exit
-vigil-licenses/src/vigil_licenses/scanner.py       53      2     12      0    97%   51-52
+vigil-core/src/vigil_core/license_db.py            37      0     14      0   100%
+vigil-core/src/vigil_core/models.py                73      0      4      0   100%
+vigil-core/src/vigil_core/package_resolver.py      56      3     24      5    90%   30->28, 48->42, 70, 86->83, 89->83, 103-104
+vigil-licenses/src/vigil_licenses/reporter.py      71      2     26      4    94%   61->63, 71, 109, 125->exit
+vigil-licenses/src/vigil_licenses/scanner.py       53      2     12      0    97%   52-53
 -------------------------------------------------------------------------------------------
-TOTAL                                             294      7     80      8    96%
+TOTAL                                             290      7     80      9    96%
 Coverage HTML written to dir prerelease_tests/htmlcov
 Coverage XML written to file prerelease_tests/coverage.xml
-====================== 454 passed, 104 warnings in 1.72s =======================
+====================== 454 passed, 104 warnings in 1.71s =======================

@@ -471,4 +471,4 @@ tests/test_vigil.py: 2 warnings
     validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-====================== 454 passed, 104 warnings in 1.50s =======================
+====================== 454 passed, 104 warnings in 1.39s =======================

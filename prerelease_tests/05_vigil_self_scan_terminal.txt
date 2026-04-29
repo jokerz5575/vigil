@@ -3,32 +3,35 @@
 │ Vigil Compliance Report │
 ╰─────────────────────────╯
 
-Dependencies scanned: 64
+Dependencies scanned: 65
 Unique licenses found: 5
-⚠ Unknown licenses: 47
+⚠ Unknown licenses: 34
 
      License Breakdown     
 ╭──────────────┬──────────╮
 │ SPDX License │ Packages │
 ├──────────────┼──────────┤
-│ MIT          │        6 │
+│ MIT          │       18 │
 ├──────────────┼──────────┤
 │ Apache-2.0   │        5 │
 ├──────────────┼──────────┤
+│ ISC          │        3 │
+├──────────────┼──────────┤
 │ BSD-3-Clause │        3 │
 ├──────────────┼──────────┤
-│ ISC          │        2 │
-├──────────────┼──────────┤
-│ MPL-2.0      │        1 │
+│ MPL-2.0      │        2 │
 ╰──────────────┴──────────╯
 
                                  License Issues                                 
-╭────────────┬─────────┬─────────┬────────────────────────────┬────────────────╮
-│ Severity   │ Package │ License │ Reason                     │ Recommendation │
-├────────────┼─────────┼─────────┼────────────────────────────┼────────────────┤
-│ WARN       │ certifi │ MPL-2.0 │ MPL-2.0 is flagged for     │ —              │
-│            │         │         │ review in your policy.     │                │
-╰────────────┴─────────┴─────────┴────────────────────────────┴────────────────╯
+╭────────────┬──────────┬─────────┬───────────────────────────┬────────────────╮
+│ Severity   │ Package  │ License │ Reason                    │ Recommendation │
+├────────────┼──────────┼─────────┼───────────────────────────┼────────────────┤
+│ WARN       │ pathspec │ MPL-2.0 │ MPL-2.0 is flagged for    │ —              │
+│            │          │         │ review in your policy.    │                │
+├────────────┼──────────┼─────────┼───────────────────────────┼────────────────┤
+│ WARN       │ certifi  │ MPL-2.0 │ MPL-2.0 is flagged for    │ —              │
+│            │          │         │ review in your policy.    │                │
+╰────────────┴──────────┴─────────┴───────────────────────────┴────────────────╯
 
 ⚠ Compliance check passed with warnings.
 
