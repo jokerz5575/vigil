@@ -34,7 +34,7 @@ jobs:
       - name: Run tests
         run: pytest tests/ -v
 
-  # Dogfood: use vigil-action to check Vigil's own dependencies
+  # Dogfood: use vigil-action to check OSSentinel's own dependencies
   compliance:
     name: License Compliance (vigil-action)
     runs-on: ubuntu-latest
@@ -42,13 +42,13 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Run Vigil license compliance
+      - name: Run OSSentinel license compliance
         uses: jokerz5575/vigil-action@v1.0-beta
         with:
           policy-file: vigil.yaml
           github-token: ${{ secrets.GITHUB_TOKEN }}
           format: html
-          output-file: vigil-compliance-report.html
+          output-file: ossentinel-compliance-report.html
           upload-report: true
           fail-on-warning: "false"
 
@@ -64,13 +64,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.9"
-      - name: Build packages
+      - name: Build ossentinel packages
         run: |
           pip install hatch
           cd vigil-core && hatch build && cd ..
           cd vigil-licenses && hatch build && cd ..
           cd vigil-cli && hatch build && cd ..
-      - name: Publish to PyPI
+      - name: Publish ossentinel-* to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: |
