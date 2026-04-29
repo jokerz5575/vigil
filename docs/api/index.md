@@ -29,7 +29,7 @@ and reporting stack.
 
 === "Core only"
 
-    ```vigil/pyproject.toml#L1-2
+    ```toml
     pip install vigil-core
     ```
 
@@ -38,7 +38,7 @@ and reporting stack.
 
 === "Full stack"
 
-    ```vigil/pyproject.toml#L1-2
+    ```toml
     pip install vigil-licenses
     ```
 
@@ -48,7 +48,7 @@ and reporting stack.
 
 === "Development / editable"
 
-    ```vigil/pyproject.toml#L1-4
+    ```toml
     git clone https://github.com/jokerz5575/vigil
     cd vigil
     make install
@@ -58,7 +58,7 @@ and reporting stack.
 
 ## Quick Smoke Test
 
-```vigil/vigil-core/src/vigil_core/__init__.py#L1-10
+```python
 from vigil_core.license_db import LicenseDatabase
 from vigil_licenses.scanner import LicenseScanner, LicensePolicy
 from vigil_licenses.reporter import generate_report, ReportFormat

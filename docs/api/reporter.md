@@ -10,7 +10,7 @@ a rich terminal table, a JSON string, or a self-contained HTML page.
 
 ## `ReportFormat`
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
+```python
 class ReportFormat(str, Enum):
     TERMINAL = "terminal"
     JSON     = "json"
@@ -25,7 +25,7 @@ class ReportFormat(str, Enum):
 
 Because `ReportFormat` extends `str`, the values can be compared to plain strings:
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
+```python
 assert ReportFormat.JSON == "json"
 assert ReportFormat.TERMINAL == "terminal"
 assert ReportFormat.HTML == "html"
@@ -35,7 +35,7 @@ assert ReportFormat.HTML == "html"
 
 ## `generate_report(report, fmt, output_path)`
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
+```python
 def generate_report(
     report: ComplianceReport,
     fmt: ReportFormat = ReportFormat.TERMINAL,
@@ -64,7 +64,7 @@ When `output_path` is given for `JSON` or `HTML`, the content is **both** return
 
 ### Terminal output
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
+```python
 from vigil_licenses.reporter import generate_report, ReportFormat
 
 # Prints a rich table to the terminal, returns ""
@@ -84,7 +84,7 @@ The terminal renderer produces:
 
 === "String only"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
+    ```python
     import json
     from vigil_licenses.reporter import generate_report, ReportFormat
 
@@ -97,7 +97,7 @@ The terminal renderer produces:
 
 === "Write to file"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
+    ```python
     from pathlib import Path
     from vigil_licenses.reporter import generate_report, ReportFormat
 
@@ -114,7 +114,7 @@ their lowercase string equivalents (`"error"`, `"warning"`, `"permissive"`, etc.
 
 === "String only"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
+    ```python
     from vigil_licenses.reporter import generate_report, ReportFormat
 
     html = generate_report(report, ReportFormat.HTML)
@@ -124,7 +124,7 @@ their lowercase string equivalents (`"error"`, `"warning"`, `"permissive"`, etc.
 
 === "Write to file"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
+    ```python
     from pathlib import Path
     from vigil_licenses.reporter import generate_report, ReportFormat
 
@@ -146,7 +146,7 @@ These functions are not part of the public API but are documented here for contr
 
 ### `_render_terminal(report)`
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
+```python
 def _render_terminal(report: ComplianceReport) -> None
 ```
 
@@ -156,19 +156,19 @@ called by `generate_report()` when `fmt == ReportFormat.TERMINAL`.
 
 ### `_render_json(report)`
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
+```python
 def _render_json(report: ComplianceReport) -> str
 ```
 
 Delegates to Pydantic:
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-2
+```python
 return report.model_dump_json(indent=2)
 ```
 
 ### `_render_html(report)`
 
-```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
+```python
 def _render_html(report: ComplianceReport) -> str
 ```
 

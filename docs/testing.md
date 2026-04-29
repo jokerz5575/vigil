@@ -10,35 +10,35 @@ achieving **96 % overall coverage** of the core library code.  Tests are written
 
 === "Full suite"
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test
     # expands to: pytest tests/ -v --tb=short
     ```
 
 === "Stop on first failure"
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test-fast
     # expands to: pytest tests/ -v --tb=short -x
     ```
 
 === "With coverage"
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test-cov
     # terminal + HTML report in htmlcov/
     ```
 
 === "CI / XML output"
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test-xml
     # coverage.xml + test-results.xml
     ```
 
 === "Single module"
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test-module MOD=test_license_db
     make test-module MOD=test_scanner
     make test-module MOD=test_reporter
@@ -47,7 +47,7 @@ achieving **96 % overall coverage** of the core library code.  Tests are written
 !!! tip "Running a single test"
     You can drill down to a specific class or test function with pytest directly:
 
-    ```vigil/Makefile#L1-2
+    ```bash
     pytest tests/test_scanner.py::TestLicenseScannerMocked::test_blocked_license_raises_error -v
     ```
 
@@ -77,7 +77,7 @@ available to every test module.
 Builds a `DependencyInfo` object with sensible defaults, accepting any field as a
 keyword argument:
 
-```vigil/tests/conftest.py#L1-8
+```python
 dep = dep_factory(name="requests", version="2.31.0", license_spdx="MIT")
 dep = dep_factory(
     name="copyleft-lib",
@@ -95,7 +95,7 @@ Injects a **mock `PackageResolver`** into the scanner so that `scan()` never cal
 `importlib.metadata` or hits the live environment.  The factory accepts a list of
 `DependencyInfo` objects that the mock resolver will return:
 
-```vigil/tests/conftest.py#L1-6
+```python
 scanner = scanner_factory(
     deps=[
         dep_factory(name="requests", license_spdx="MIT", license_info=db.get("MIT")),
@@ -340,7 +340,7 @@ functionally.
 
 Run `make test-cov` to reproduce this output:
 
-```vigil/docs/testing.md#L1-9
+```python
 Name                                            Stmts   Miss Branch BrPart  Cover
 vigil-core/src/vigil_core/license_db.py            36      0     14      0   100%
 vigil-core/src/vigil_core/models.py                74      0      4      0   100%
@@ -375,7 +375,7 @@ Follow these guidelines when adding tests to the suite:
 - **Mark slow or integration tests** with `@pytest.mark.slow` so they can be skipped
   during fast feedback loops:
 
-    ```vigil/tests/conftest.py#L1-4
+    ```python
     @pytest.mark.slow
     def test_pypi_api_fallback():
         ...
@@ -383,7 +383,7 @@ Follow these guidelines when adding tests to the suite:
 
     Run the marked tests explicitly with:
 
-    ```vigil/Makefile#L1-2
+    ```bash
     pytest -m slow
     ```
 

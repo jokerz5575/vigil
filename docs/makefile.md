@@ -40,7 +40,7 @@ Run these four steps once after cloning the repository:
 
 === "Linux / macOS"
 
-    ```vigil/Makefile#L1-4
+    ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     make install
@@ -49,7 +49,7 @@ Run these four steps once after cloning the repository:
 
 === "Windows"
 
-    ```vigil/Makefile#L1-4
+    ```bash
     python3 -m venv .venv
     .venv\Scripts\activate
     make install
@@ -60,7 +60,7 @@ After `make test` completes you should see **454 tests passed** and no failures.
 
 ### Daily development loop
 
-```vigil/Makefile#L1-4
+```bash
 make test-fast   # fastest feedback — stops at first failure
 make lint        # catch style issues before committing
 # fix any issues, then:
@@ -82,7 +82,7 @@ make test-cov    # full picture with per-line coverage
 Upgrades pip, then installs all three packages in editable mode together with
 `pytest`, `pytest-cov`, and `pyyaml`:
 
-```vigil/Makefile#L1-8
+```bash
 pip install --upgrade pip
 pip install -e "vigil-core[dev]"
 pip install -e "vigil-licenses[dev]"
@@ -95,7 +95,7 @@ any of the three sub-packages.
 
 ### `make install-docs`
 
-```vigil/Makefile#L1-2
+```bash
 pip install "mkdocs-material>=9.5" "pymdown-extensions>=10.0"
 ```
 
@@ -107,7 +107,7 @@ pip install "mkdocs-material>=9.5" "pymdown-extensions>=10.0"
 
 ### `make test`
 
-```vigil/Makefile#L1-2
+```bash
 pytest tests/ -v --tb=short
 ```
 
@@ -116,7 +116,7 @@ Use this for a final check before pushing.
 
 ### `make test-fast`
 
-```vigil/Makefile#L1-2
+```bash
 pytest tests/ -v --tb=short -x
 ```
 
@@ -127,20 +127,20 @@ feedback cycles.
 !!! tip "Single-module shortcut"
     To focus on one test module during a debugging session use:
 
-    ```vigil/Makefile#L1-2
+    ```bash
     make test-module MOD=test_scanner
     ```
 
     This expands to `pytest tests/test_scanner.py -v --tb=short`.  You can also
     target a single class or function directly with pytest:
 
-    ```vigil/Makefile#L1-2
+    ```bash
     pytest tests/test_scanner.py::TestLicenseScannerMocked::test_blocked_license_raises_error -v
     ```
 
 ### `make test-cov`
 
-```vigil/Makefile#L1-5
+```bash
 pytest tests/ -v --tb=short \
     --cov=vigil_core --cov=vigil_licenses \
     --cov-report=term-missing \
@@ -157,7 +157,7 @@ Runs the suite and writes two coverage reports:
 
 ### `make test-xml`
 
-```vigil/Makefile#L1-5
+```bash
 pytest tests/ -v --tb=short \
     --cov=vigil_core --cov=vigil_licenses \
     --cov-report=xml:coverage.xml \
@@ -176,13 +176,13 @@ Emits machine-readable artifacts for CI pipelines:
 
 ### `make test-module MOD=<name>`
 
-```vigil/Makefile#L1-2
+```bash
 pytest tests/$(MOD).py -v --tb=short
 ```
 
 **Example:**
 
-```vigil/Makefile#L1-2
+```bash
 make test-module MOD=test_license_db
 make test-module MOD=test_reporter
 ```
@@ -196,7 +196,7 @@ without waiting for the full 454-test suite.
 
 ### `make lint`
 
-```vigil/Makefile#L1-2
+```bash
 ruff check vigil-core/src vigil-licenses/src vigil-cli/src
 ```
 
@@ -204,7 +204,7 @@ Read-only static analysis — reports style and logic issues without modifying a
 
 ### `make format`
 
-```vigil/Makefile#L1-2
+```bash
 ruff format vigil-core/src vigil-licenses/src vigil-cli/src
 ```
 
@@ -212,7 +212,7 @@ Auto-formats all source trees in place.  Run this *before* `make lint`.
 
 ### `make typecheck`
 
-```vigil/Makefile#L1-2
+```bash
 mypy vigil-core/src vigil-licenses/src vigil-cli/src
 ```
 
@@ -220,7 +220,7 @@ Runs Mypy with the project's `pyproject.toml` configuration.
 
 ### `make check`
 
-```vigil/Makefile#L1-2
+```bash
 make lint
 make typecheck
 ```
@@ -236,7 +236,7 @@ the recipe to abort.
 
 ### `make docs-serve`
 
-```vigil/Makefile#L1-2
+```bash
 mkdocs serve
 ```
 
@@ -247,7 +247,7 @@ a Markdown file or `mkdocs.yml` triggers an instant browser refresh.
 
 ### `make docs-build`
 
-```vigil/Makefile#L1-2
+```bash
 mkdocs build --clean
 ```
 
@@ -259,7 +259,7 @@ generated HTML artefacts.
 
 ### `make docs-deploy`
 
-```vigil/Makefile#L1-2
+```bash
 mkdocs gh-deploy --force --clean
 ```
 
@@ -277,7 +277,7 @@ Pages then serves the updated site from `https://jokerz5575.github.io/vigil/`.
 
 ### `make build`
 
-```vigil/Makefile#L1-6
+```bash
 pip install --quiet hatch
 cd vigil-core     && hatch build
 cd vigil-licenses && hatch build
@@ -286,7 +286,7 @@ cd vigil-cli      && hatch build
 
 Builds source distributions and wheels for all three packages.  Artefacts land in:
 
-```vigil/Makefile#L1-3
+```bash
 vigil-core/dist/
 vigil-licenses/dist/
 vigil-cli/dist/
@@ -300,7 +300,7 @@ vigil-cli/dist/
 
 ### `make scan`
 
-```vigil/Makefile#L1-2
+```bash
 vigil scan --policy vigil.yaml
 ```
 
@@ -343,7 +343,7 @@ value on the command line to point at an alternative binary or interpreter.
 
 **Example — running the test suite under a specific interpreter:**
 
-```vigil/Makefile#L1-2
+```bash
 make test PYTEST="python -m pytest"
 make test PYTHON=python3.12
 ```

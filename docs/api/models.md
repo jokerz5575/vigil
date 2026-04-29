@@ -15,7 +15,7 @@ and the full Pydantic validation pipeline.
 
 High-level classification of a license's copyleft characteristics.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-10
+```python
 class LicenseFamily(str, Enum):
     PERMISSIVE       = "permissive"        # MIT, Apache-2.0, BSD, ISC
     WEAK_COPYLEFT    = "weak_copyleft"     # LGPL, MPL
@@ -42,7 +42,7 @@ class LicenseFamily(str, Enum):
 
 The urgency level of a detected license conflict.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-6
+```python
 class ConflictSeverity(str, Enum):
     ERROR   = "error"    # Must fix — blocks compliance
     WARNING = "warning"  # Should review — potential issue
@@ -63,7 +63,7 @@ class ConflictSeverity(str, Enum):
 
 Represents a single resolved software license with its full SPDX metadata.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-14
+```python
 class LicenseInfo(BaseModel):
     spdx_id:               str
     name:                  str
@@ -103,7 +103,7 @@ Returns `True` if `family == LicenseFamily.PERMISSIVE`.
 Returns `True` if `family` is any of `WEAK_COPYLEFT`, `STRONG_COPYLEFT`, or
 `NETWORK_COPYLEFT`.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-10
+```python
 from vigil_core.license_db import LicenseDatabase
 
 db = LicenseDatabase()
@@ -123,7 +123,7 @@ assert gpl.is_copyleft() is True
 
 Represents a resolved Python package dependency with its license and PyPI metadata.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-14
+```python
 class DependencyInfo(BaseModel):
     name:         str
     version:      str
@@ -154,7 +154,7 @@ class DependencyInfo(BaseModel):
 
 #### Property: `display_name`
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-4
+```python
 @property
 def display_name(self) -> str:
     return f"{self.name}=={self.version}"
@@ -162,7 +162,7 @@ def display_name(self) -> str:
 
 Formats the dependency as `"name==version"`, matching the pip freeze style.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-4
+```python
 dep = DependencyInfo(name="requests", version="2.31.0")
 assert dep.display_name == "requests==2.31.0"
 ```
@@ -173,7 +173,7 @@ assert dep.display_name == "requests==2.31.0"
 
 Represents a single detected compliance issue for a specific package.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-8
+```python
 class LicenseConflict(BaseModel):
     package:        str
     license_spdx:   str
@@ -198,7 +198,7 @@ class LicenseConflict(BaseModel):
 
 The top-level result returned by `LicenseScanner.scan()`.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-14
+```python
 class ComplianceReport(BaseModel):
     generated_at:        datetime             = Field(default_factory=datetime.utcnow)
     project_name:        str | None           = None
@@ -235,14 +235,14 @@ class ComplianceReport(BaseModel):
 
 #### Method: `license_families()`
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-4
+```python
 def license_families(self) -> dict[str, list[str]]
 ```
 
 Groups package names by their resolved license family.  Dependencies without a
 `license_info` are excluded.
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-8
+```python
 families = report.license_families()
 # Example output:
 # {
@@ -253,7 +253,7 @@ families = report.license_families()
 
 #### Usage example
 
-```vigil/vigil-core/src/vigil_core/models.py#L1-30
+```python
 from datetime import datetime
 from vigil_core.models import (
     ComplianceReport,

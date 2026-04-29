@@ -15,7 +15,7 @@ Defines the allow-list, block-list, warn-list, and unknown-license behaviour for
 
 ### Constructor
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
+```python
 LicensePolicy(
     allow: list[str] | None = None,
     block: list[str] | None = None,
@@ -37,7 +37,7 @@ LicensePolicy(
     dependency, so the allow-list `ERROR` is never reached.  Use this intentionally
     when you want to flag a license for review without hard-failing the scan.
 
-    ```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
+    ```python
     # LGPL-3.0 is in warn — it produces a WARNING,
     # even though it is not in the allow list.
     policy = LicensePolicy(
@@ -48,7 +48,7 @@ LicensePolicy(
 
 ### `from_dict(data)`
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
+```python
 @classmethod
 def from_dict(cls, data: dict) -> LicensePolicy
 ```
@@ -57,7 +57,7 @@ Constructs a `LicensePolicy` from a plain Python dict.  Supports two input shape
 
 === "Nested (policy wrapper)"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-9
+    ```python
     policy = LicensePolicy.from_dict({
         "policy": {
             "allow": ["MIT", "Apache-2.0", "BSD-3-Clause"],
@@ -70,7 +70,7 @@ Constructs a `LicensePolicy` from a plain Python dict.  Supports two input shape
 
 === "Flat (no wrapper)"
 
-    ```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-7
+    ```python
     policy = LicensePolicy.from_dict({
         "allow": ["MIT", "Apache-2.0"],
         "block": ["GPL-3.0"],
@@ -82,7 +82,7 @@ Missing keys fall back to their constructor defaults (`allow=None`, `block=[]`, 
 
 ### `from_yaml(path)`
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
+```python
 @classmethod
 def from_yaml(cls, path: str | Path) -> LicensePolicy
 ```
@@ -90,7 +90,7 @@ def from_yaml(cls, path: str | Path) -> LicensePolicy
 Reads a YAML file from `path` and delegates to `from_dict()`.  Requires
 [PyYAML](https://pypi.org/project/PyYAML/) to be installed.
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
+```python
 policy = LicensePolicy.from_yaml("vigil.yaml")
 # or
 policy = LicensePolicy.from_yaml(Path(__file__).parent / "policy.yaml")
@@ -98,7 +98,7 @@ policy = LicensePolicy.from_yaml(Path(__file__).parent / "policy.yaml")
 
 If PyYAML is not installed the method raises:
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-3
+```python
 ImportError: PyYAML is required to load policy from YAML.
              Install it with: pip install pyyaml
 ```
@@ -115,7 +115,7 @@ Scans Python dependencies against a `LicensePolicy` and returns a `ComplianceRep
 
 ### Constructor
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-6
+```python
 LicenseScanner(
     policy: LicensePolicy | None = None,
     license_db: LicenseDatabase | None = None,
@@ -132,7 +132,7 @@ injection in tests (see [Test Architecture](../testing.md#test-architecture)).
 
 ### `scan(requirements_file, project_name)`
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-6
+```python
 def scan(
     self,
     requirements_file: str | None = None,
@@ -166,7 +166,7 @@ For each resolved `DependencyInfo` the scanner applies the following logic:
 
 #### Full example
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-30
+```python
 from vigil_licenses.scanner import LicensePolicy, LicenseScanner
 from vigil_licenses.reporter import generate_report, ReportFormat
 
@@ -207,7 +207,7 @@ generate_report(report, ReportFormat.TERMINAL)
 
 #### Scanning from `requirements.txt`
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
+```python
 scanner = LicenseScanner(policy=LicensePolicy.from_yaml("vigil.yaml"))
 report  = scanner.scan(requirements_file="requirements.txt")
 
@@ -217,7 +217,7 @@ assert all(d.is_direct for d in report.dependencies)
 
 #### Loading a policy from YAML
 
-```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
+```python
 policy  = LicensePolicy.from_yaml("vigil.yaml")
 scanner = LicenseScanner(policy=policy)
 report  = scanner.scan()

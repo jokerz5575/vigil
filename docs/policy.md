@@ -9,7 +9,7 @@ afterthought.
 
 ## File Format
 
-```yaml vigil/docs/policy.md
+```yaml
 # vigil.yaml
 policy:
   # Permissive / public-domain licenses that are safe for most projects.
@@ -433,7 +433,7 @@ Below is a minimal `vigil.yaml` suited to a **SaaS company** shipping a closed-s
 It approves the most widely used permissive licenses, flags anything copyleft for review, and
 blocks all GPL/AGPL variants and non-commercial content licenses.
 
-```yaml vigil/docs/policy.md
+```yaml
 # vigil.yaml — SaaS company baseline policy
 policy:
   allow:

@@ -20,7 +20,7 @@ choosing an output format, and integrating with GitHub Actions.
 
     Install the scanner library and the CLI in one shot:
 
-    ```bash vigil/docs/getting-started.md
+    ```bash
     pip install vigil-licenses vigil-cli
     ```
 
@@ -31,7 +31,7 @@ choosing an output format, and integrating with GitHub Actions.
     Clone the repository and install all three packages in editable mode so that
     changes to the source are reflected immediately — no reinstall needed:
 
-    ```bash vigil/docs/getting-started.md
+    ```bash
     git clone https://github.com/jokerz5575/vigil.git
     cd vigil
 
@@ -42,7 +42,7 @@ choosing an output format, and integrating with GitHub Actions.
 
     Or use the provided `Makefile` shortcut, which also installs all dev dependencies:
 
-    ```bash vigil/docs/getting-started.md
+    ```bash
     make install
     ```
 
@@ -53,7 +53,7 @@ choosing an output format, and integrating with GitHub Actions.
 Run `vigil scan` with no arguments to inspect every package currently installed in
 your Python environment:
 
-```bash vigil/docs/getting-started.md
+```bash
 vigil scan
 ```
 
@@ -76,7 +76,7 @@ Vigil will:
 Without a policy file, Vigil only flags licenses it knows are problematic by default
 (e.g. AGPL). To enforce your organisation's exact rules, point Vigil at a `vigil.yaml`:
 
-```yaml vigil/docs/getting-started.md
+```yaml
 policy:
   allow:
     - MIT
@@ -91,7 +91,7 @@ policy:
 
 Then pass it on the command line:
 
-```bash vigil/docs/getting-started.md
+```bash
 vigil scan --policy vigil.yaml
 ```
 
@@ -117,20 +117,20 @@ Vigil supports three output formats, selectable with the `--format` flag.
 
 **Terminal (default)** — human-readable Rich table, printed to stdout:
 
-```bash vigil/docs/getting-started.md
+```bash
 vigil scan --policy vigil.yaml --format terminal
 ```
 
 **JSON** — machine-readable, suitable for downstream tooling or dashboards:
 
-```bash vigil/docs/getting-started.md
+```bash
 vigil scan --policy vigil.yaml --format json
 vigil scan --policy vigil.yaml --format json --output report.json
 ```
 
 **HTML** — self-contained standalone report you can share or archive:
 
-```bash vigil/docs/getting-started.md
+```bash
 vigil scan --policy vigil.yaml --format html --output compliance-report.html
 ```
 
@@ -143,7 +143,7 @@ vigil scan --policy vigil.yaml --format html --output compliance-report.html
 Add the following workflow to `.github/workflows/compliance.yml` to run a license
 compliance check on every push and pull request:
 
-```yaml vigil/docs/getting-started.md
+```yaml
 name: License Compliance
 
 on:
@@ -192,7 +192,7 @@ jobs:
 
 Use these codes to gate pull request merges or deployment pipelines:
 
-```bash vigil/docs/getting-started.md
+```bash
 # Fail the build if any blocked license is present
 vigil scan --policy vigil.yaml || exit 1
 

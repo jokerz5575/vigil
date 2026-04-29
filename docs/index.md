@@ -24,7 +24,7 @@ grind.
 
 ## Quick Start
 
-```bash vigil/docs/index.md
+```bash
 # 1. Install
 pip install vigil-licenses vigil-cli
 

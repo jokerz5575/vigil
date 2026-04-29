@@ -6,7 +6,7 @@
 `LicenseDatabase` is an in-memory store of SPDX license metadata and a conflict-detection
 engine.  It is instantiated once and reused across the entire scan lifecycle.
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-4
+```python
 from vigil_core.license_db import LicenseDatabase
 
 db = LicenseDatabase()
@@ -42,7 +42,7 @@ The database is seeded from the private `_LICENSE_DATA` dict at module load time
 
 ### `__init__()`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-2
+```python
 LicenseDatabase()
 ```
 
@@ -53,14 +53,14 @@ in an internal `dict[str, LicenseInfo]` keyed by SPDX ID.
 
 ### `get(spdx_id)`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-4
+```python
 def get(self, spdx_id: str) -> LicenseInfo | None
 ```
 
 Exact-match lookup.  The key is **case-sensitive** — `"mit"` returns `None`, `"MIT"`
 returns the full `LicenseInfo`.
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-8
+```python
 db = LicenseDatabase()
 
 info = db.get("MIT")
@@ -76,7 +76,7 @@ assert missing is None
 
 ### `normalize(raw_license)`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-4
+```python
 def normalize(self, raw_license: str) -> str | None
 ```
 
@@ -89,7 +89,7 @@ Converts a free-form license string to a canonical SPDX ID.  The resolution orde
 4. Try the original lower-cased string as-is in `_LICENSE_ALIASES`.
 5. Return `None` if none of the above succeed.
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-10
+```python
 db = LicenseDatabase()
 
 # Exact SPDX IDs pass through
@@ -114,13 +114,13 @@ assert db.normalize("Bespoke Proprietary 1.0") is None
 
 ### `resolve(raw_license)`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-4
+```python
 def resolve(self, raw_license: str) -> LicenseInfo | None
 ```
 
 Convenience method that calls `normalize()` then `get()` in one step.
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-6
+```python
 db = LicenseDatabase()
 
 info = db.resolve("Apache License, Version 2.0")
@@ -133,7 +133,7 @@ assert info.family.value == "permissive"
 
 ### `check_conflict(...)`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-8
+```python
 def check_conflict(
     self,
     package_name: str,
@@ -171,7 +171,7 @@ Checks are evaluated in the following sequence — the first match wins:
 
 #### Examples
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-26
+```python
 from vigil_core.license_db import LicenseDatabase
 from vigil_core.models import ConflictSeverity
 
@@ -204,13 +204,13 @@ assert c is None
 
 ### `all_spdx_ids()`
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-4
+```python
 def all_spdx_ids(self) -> list[str]
 ```
 
 Returns the list of all SPDX IDs in the built-in database, in insertion order.
 
-```vigil/vigil-core/src/vigil_core/license_db.py#L1-5
+```python
 db = LicenseDatabase()
 ids = db.all_spdx_ids()
 
