@@ -60,6 +60,19 @@ class DependencyInfo(BaseModel):
     author: str | None = None
     description: str | None = None
     pypi_url: str | None = None
+    # Provenance: where the license was resolved and the exact source URL
+    license_source_url: str | None = Field(
+        default=None,
+        description=(
+            "Direct URL to the LICENSE file where the SPDX identifier was confirmed. "
+            "For GitHub resolutions this is a version-tag-specific permalink, e.g. "
+            "https://github.com/psf/requests/blob/v2.31.0/LICENSE."
+        ),
+    )
+    license_resolved_by: str | None = Field(
+        default=None,
+        description="Resolution back-end: 'pypi' (metadata/classifier) or 'github' (API scrape).",
+    )
 
     @property
     def display_name(self) -> str:

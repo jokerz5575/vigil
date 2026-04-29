@@ -72,10 +72,24 @@ class LicenseScanner:
         self,
         policy: LicensePolicy | None = None,
         license_db: LicenseDatabase | None = None,
+        github_token: str | None = None,
     ) -> None:
         self._policy = policy or LicensePolicy()
         self._db = license_db or LicenseDatabase()
-        self._resolver = PackageResolver(license_db=self._db)
+
+        # Build optional GitHub resolver.
+        # The resolver itself also checks GITHUB_TOKEN / VIGIL_GITHUB_TOKEN env vars,
+        # so passing github_token=None is fine — it will pick up the env var if set.
+        github_resolver = None
+        try:
+            from vigil_core.github_resolver import GitHubLicenseResolver
+
+            github_resolver = GitHubLicenseResolver(token=github_token)
+        except Exception:  # noqa: BLE001
+            # httpx not available or import error — GitHub fallback silently disabled
+            pass
+
+        self._resolver = PackageResolver(license_db=self._db, github_resolver=github_resolver)
 
     def scan(
         self,

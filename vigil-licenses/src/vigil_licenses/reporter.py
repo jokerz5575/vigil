@@ -67,6 +67,15 @@ def _render_terminal(report: ComplianceReport) -> None:
     console.print(f"\n[bold]Dependencies scanned:[/bold] {report.total_dependencies}")
     console.print(f"[bold]Unique licenses found:[/bold] {len(report.license_summary)}")
 
+    # Count GitHub-resolved packages and surface them
+    github_resolved = [
+        d for d in report.dependencies if d.license_resolved_by == "github"
+    ]
+    if github_resolved:
+        console.print(
+            f"[bold blue]🐙 GitHub-resolved licenses:[/bold blue] {len(github_resolved)}"
+        )
+
     if report.unknown_licenses:
         console.print(
             f"[bold yellow]⚠ Unknown licenses:[/bold yellow] {len(report.unknown_licenses)}"
@@ -86,6 +95,27 @@ def _render_terminal(report: ComplianceReport) -> None:
         console.print(table)
 
     # Conflicts
+    # GitHub-resolved dependency details
+    if github_resolved:
+        console.print()
+        gh_table = Table(
+            title="🐙 GitHub-Resolved Licenses",
+            box=box.ROUNDED,
+            show_lines=True,
+        )
+        gh_table.add_column("Package", style="cyan")
+        gh_table.add_column("Version")
+        gh_table.add_column("SPDX")
+        gh_table.add_column("Source URL (version-specific)")
+        for dep in sorted(github_resolved, key=lambda d: d.name):
+            gh_table.add_row(
+                dep.name,
+                dep.version,
+                dep.license_spdx or "?",
+                dep.license_source_url or "—",
+            )
+        console.print(gh_table)
+
     if not report.conflicts:
         console.print("\n[bold green]✓ No license conflicts detected.[/bold green]\n")
         return
@@ -154,6 +184,10 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
   .stat { background: #f5f6fa; border-radius: 8px; padding: 1rem 1.5rem; text-align: center; }
   .stat-num { font-size: 2rem; font-weight: bold; color: #1e3799; }
   .stat-label { font-size: 0.85rem; color: #636e72; }
+  .github { background: #f0f7ff; border-left: 4px solid #0366d6; }
+  a.src-link { color: #0366d6; text-decoration: none; font-size: 0.82rem; word-break: break-all; }
+  a.src-link:hover { text-decoration: underline; }
+  .badge-gh { background: #0366d6; color: white; padding: 0.15rem 0.45rem; border-radius: 3px; font-size: 0.75rem; }
   footer { margin-top: 2rem; font-size: 0.8rem; color: #b2bec3; text-align: center; }
 </style>
 </head>
@@ -165,6 +199,9 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
   <div class="stat"><div class="stat-num">{{ license_count }}</div><div class="stat-label">Unique Licenses</div></div>
   <div class="stat"><div class="stat-num">{{ error_count }}</div><div class="stat-label">Errors</div></div>
   <div class="stat"><div class="stat-num">{{ warn_count }}</div><div class="stat-label">Warnings</div></div>
+  {% if github_resolved_count %}
+  <div class="stat"><div class="stat-num">{{ github_resolved_count }}</div><div class="stat-label">🐙 GitHub-Resolved</div></div>
+  {% endif %}
 </div>
 {% if conflicts %}
 <h2>License Issues</h2>
@@ -190,6 +227,24 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
   <tr><td>{{ spdx }}</td><td>{{ count }}</td></tr>
   {% endfor %}
 </table>
+{% if github_resolved %}
+<h2>🐙 GitHub-Resolved Licenses</h2>
+<p>The following packages had no license metadata on PyPI. Their license was identified
+by searching GitHub for the canonical repository and reading the LICENSE file at the
+version-specific release tag (or the default branch when no matching tag was found).</p>
+<table>
+  <tr><th>Package</th><th>Version</th><th>SPDX</th><th>Source URL</th><th>Confidence</th></tr>
+  {% for dep in github_resolved %}
+  <tr class="github">
+    <td><strong>{{ dep.name }}</strong></td>
+    <td>{{ dep.version }}</td>
+    <td>{{ dep.license_spdx or '?' }}</td>
+    <td>{% if dep.license_source_url %}<a class="src-link" href="{{ dep.license_source_url.split('  ')[0] }}" target="_blank" rel="noopener">{{ dep.license_source_url }}</a>{% else %}—{% endif %}</td>
+    <td><span class="badge-gh">GitHub</span></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
 {% if unknown %}
 <h2>Unknown Licenses ({{ unknown|length }})</h2>
 <ul>{% for u in unknown %}<li>{{ u }}</li>{% endfor %}</ul>
@@ -203,6 +258,10 @@ def _render_html(report: ComplianceReport) -> str:
     from jinja2 import Template
 
     tpl = Template(_HTML_TEMPLATE)
+    gh_resolved = sorted(
+        [d for d in report.dependencies if d.license_resolved_by == "github"],
+        key=lambda d: d.name,
+    )
     return tpl.render(
         title_suffix=f" — {report.project_name}" if report.project_name else "",
         generated_at=report.generated_at.strftime("%Y-%m-%d %H:%M UTC"),
@@ -219,4 +278,6 @@ def _render_html(report: ComplianceReport) -> str:
             report.license_summary.items(), key=lambda x: -x[1]
         ),
         unknown=report.unknown_licenses,
+        github_resolved=gh_resolved,
+        github_resolved_count=len(gh_resolved),
     )

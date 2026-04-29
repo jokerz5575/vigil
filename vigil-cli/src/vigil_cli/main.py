@@ -65,6 +65,17 @@ def scan(
         "--fail-on-warning",
         help="Exit with code 1 on warnings as well as errors.",
     ),
+    github_token: str | None = typer.Option(
+        None,
+        "--github-token",
+        envvar="GITHUB_TOKEN",
+        help=(
+            "GitHub personal-access token used to look up licenses for packages "
+            "that have no license metadata on PyPI. Falls back to the GITHUB_TOKEN "
+            "environment variable. Unauthenticated requests are rate-limited to "
+            "60/hour; authenticated requests to 5,000/hour."
+        ),
+    ),
 ) -> None:
     """
     Scan project dependencies for license compliance issues.
@@ -76,6 +87,8 @@ def scan(
         vigil scan --requirements requirements.txt --policy vigil.yaml
 
         vigil scan --format html --output report.html
+
+        vigil scan --github-token ghp_... --policy vigil.yaml
     """
     from vigil_licenses.reporter import ReportFormat, generate_report
     from vigil_licenses.scanner import LicensePolicy, LicenseScanner
@@ -88,7 +101,7 @@ def scan(
             raise typer.Exit(1)
         lic_policy = LicensePolicy.from_yaml(policy)
 
-    scanner = LicenseScanner(policy=lic_policy)
+    scanner = LicenseScanner(policy=lic_policy, github_token=github_token)
 
     with console.status("[bold cyan]Scanning dependencies...[/bold cyan]"):
         report = scanner.scan(
