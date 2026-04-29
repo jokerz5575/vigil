@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "vigil-core"
+name = "ossentinel-core"
 version = "1.0.0"
 description = "Core shared library for the Vigil compliance toolkit"
 readme = "README.md"
