@@ -136,6 +136,42 @@ vigil scan --policy vigil.yaml --format html --output compliance-report.html
 
 ---
 
+## GitHub License Scraper
+
+When a package has no license metadata on PyPI, Vigil can automatically
+search GitHub, find the canonical repository, and read the LICENSE file at the
+exact version tag — giving you a **version-specific source URL** for every
+resolution.
+
+=== "Environment variable (recommended for CI)"
+
+    ```bash
+    export GITHUB_TOKEN=ghp_yourtoken
+    vigil scan --policy vigil.yaml
+    ```
+
+=== "CLI flag"
+
+    ```bash
+    vigil scan --policy vigil.yaml --github-token ghp_yourtoken
+    ```
+
+!!! tip
+    Without a token, Vigil still uses the GitHub API but is limited to
+    **10 search requests / minute** (unauthenticated). With a token the limit
+    is **5 000 requests / hour**. Generate a token at
+    [github.com/settings/tokens](https://github.com/settings/tokens) — only
+    **public repository read access** is required (no scopes needed for public
+    repos).
+
+!!! note "What the scraper returns"
+    For each GitHub-resolved package, the terminal and HTML reports show a
+    dedicated **🐙 GitHub-Resolved Licenses** table with the SPDX identifier
+    and a **version-specific permalink** to the LICENSE file, e.g.
+    `https://github.com/psf/requests/blob/v2.31.0/LICENSE`.
+
+---
+
 ## CI/CD Integration
 
 ### GitHub Actions

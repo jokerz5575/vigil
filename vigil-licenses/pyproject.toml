@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vigil-licenses"
-version = "0.1.0"
+version = "1.0.0"
 description = "License conflict detection and compliance reporting for Python projects"
 readme = "README.md"
 license = { text = "Apache-2.0" }
@@ -24,7 +24,7 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-    "vigil-core>=0.1.0",
+    "vigil-core>=1.0.0",
     "rich>=13.0.0",
     "jinja2>=3.1.0",
     "pyyaml>=6.0",

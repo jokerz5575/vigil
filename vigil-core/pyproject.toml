@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vigil-core"
-version = "0.1.0"
+version = "1.0.0"
 description = "Core shared library for the Vigil compliance toolkit"
 readme = "README.md"
 license = { text = "Apache-2.0" }

@@ -7,7 +7,7 @@ from vigil_core.license_db import LicenseDatabase
 from vigil_core.models import ComplianceReport, DependencyInfo, LicenseInfo
 from vigil_core.package_resolver import PackageResolver
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 __all__ = [
     "LicenseInfo",
     "DependencyInfo",

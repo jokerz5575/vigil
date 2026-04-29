@@ -50,8 +50,8 @@
 # TEST SCENARIOS
 # =============================================================================
 #
-# The full test suite lives in tests/ and is split into six focused modules
-# plus the original test_vigil.py.  Run the full suite with:
+# The full test suite lives in tests/ and is split into seven focused modules
+# plus the original test_vigil.py (532 tests total).  Run the full suite with:
 #
 #   make test            (verbose, short traceback)
 #   make test-cov        (same + coverage report)
@@ -62,6 +62,11 @@
 #
 # To run a single class or test:
 #   pytest tests/test_scanner.py::TestLicenseScannerMocked::test_blocked_license_raises_error -v
+#
+# GITHUB TOKEN (for live scanning, not needed for tests):
+#   The GitHub license scraper is enabled automatically when GITHUB_TOKEN or
+#   VIGIL_GITHUB_TOKEN is set in the environment, or when --github-token is
+#   passed to 'vigil scan'.  All test HTTP calls are mocked.
 #
 # ---------------------------------------------------------------------------
 # tests/test_license_db.py  (173 tests)
@@ -203,6 +208,61 @@
 #   TestFromDistribution
 #     ✓ Real pydantic distribution → DependencyInfo with name="pydantic"
 #     ✓ Custom LicenseDatabase is stored as resolver._db
+#
+# ---------------------------------------------------------------------------
+# tests/test_github_resolver.py  (78 tests)
+# ---------------------------------------------------------------------------
+#   TestGitHubLicenseResult
+#     ✓ Dataclass is frozen — mutation raises an error
+#     ✓ All fields (spdx_id, license_name, source_url, repo_url, ref,
+#       ref_is_version_tag, confidence) are stored correctly
+#   TestScoreCandidate
+#     ✓ Exact name match scores ≥ 1.0
+#     ✓ Hyphen / underscore variant scores ≥ 0.9
+#     ✓ No name overlap returns 0.0 immediately
+#     ✓ Fork is penalised (−0.25)
+#     ✓ Archived repo is penalised (−0.10)
+#     ✓ More popular repo (higher stars) scores higher
+#     ✓ Org-name bonus applies when pkg name is in owner name
+#     ✓ Score is always capped at 1.0
+#     ✓ Score is never negative
+#   TestFindRef
+#     ✓ v{version} tag found → ("v2.31.0", True)
+#     ✓ Bare version tag found → ("2.31.0", True)
+#     ✓ {repo}-{version} tag found → ("requests-2.31.0", True)
+#     ✓ release/v{version} tag found → ("release/v2.31.0", True)
+#     ✓ No matching tag → falls back to (default_branch, False)
+#     ✓ Tag fetch exception → falls back gracefully, no exception raised
+#     ✓ Priority order: v{ver} preferred over bare {ver}
+#   TestResolveHappyPath  (all HTTP mocked)
+#     ✓ Full happy path → GitHubLicenseResult with correct fields
+#     ✓ No version tag → result.ref_is_version_tag == False
+#     ✓ source_url == html_url from the license API payload
+#     ✓ repo_url == https://github.com/{owner}/{repo}
+#     ✓ confidence matches the scored value
+#   TestResolveEdgeCases
+#     ✓ Empty search results → None
+#     ✓ Best candidate below confidence threshold → None
+#     ✓ Search returns 403 (rate limit) → None
+#     ✓ License endpoint returns 403 → None
+#     ✓ License endpoint returns 404 → None
+#     ✓ spdx_id == "NOASSERTION" → None
+#     ✓ license field is null in API response → None
+#     ✓ Network error on search → None (exception swallowed)
+#     ✓ Network error on tags → falls back to default branch, still tries license
+#   TestCache
+#     ✓ Second call returns the same object without extra HTTP requests
+#     ✓ None result is cached (failed lookups not retried)
+#     ✓ Cache key is case-insensitive on package name
+#     ✓ Different versions produce independent cache entries
+#   TestContextManager
+#     ✓ __exit__ calls _http.close()
+#   TestPackageResolverIntegration
+#     ✓ GitHub resolver not called when PyPI resolves the license
+#     ✓ GitHub resolver called when PyPI yields no license
+#     ✓ Successful GitHub result stored in dep.license_source_url and
+#       dep.license_resolved_by == "github"
+#     ✓ GitHub returning None leaves dep.license_info as None
 #
 # ---------------------------------------------------------------------------
 # tests/test_policy_yaml.py  (47 tests)

@@ -7,6 +7,91 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0-beta] — 2025
+
+### Added
+
+#### GitHub License Scraper (`vigil_core.github_resolver`)
+Brand-new fallback resolver that kicks in when a package has no license
+metadata on PyPI. Searches the GitHub REST API, scores candidate repositories
+by name similarity and popularity, finds the release tag matching the exact
+installed version, and returns both the SPDX identifier **and a
+version-specific permalink** to the LICENSE file.
+
+- `GitHubLicenseResult` frozen dataclass — `spdx_id`, `license_name`,
+  `source_url` (version-specific permalink), `repo_url`, `ref`,
+  `ref_is_version_tag`, `confidence`
+- `GitHubLicenseResolver` class with in-process cache, context-manager
+  protocol, and graceful handling of 403 (rate limit) and 404
+- Token support: `--github-token` CLI flag or `GITHUB_TOKEN` /
+  `VIGIL_GITHUB_TOKEN` environment variables
+- 9 tag-naming patterns tried in priority order (`v{ver}`, `{ver}`,
+  `{repo}-{ver}`, `release/v{ver}`, …)
+- Rate-limit warnings logged; scan continues uninterrupted for unresolved
+  packages
+
+#### License Resolution Provenance (`vigil_core.models`)
+- `DependencyInfo.license_source_url` — direct URL to the LICENSE file
+  (version-specific when GitHub-resolved)
+- `DependencyInfo.license_resolved_by` — `"pypi"` or `"github"`
+
+#### Reporter updates (`vigil_licenses.reporter`)
+- Terminal output: new 🐙 **GitHub-Resolved Licenses** table showing
+  package, version, SPDX, and full source URL
+- HTML output: dedicated section with clickable source-URL links, blue
+  left-border highlight rows, and a stat card
+- `--github-token` / `GITHUB_TOKEN` option added to `vigil scan`
+
+#### `vigil.yaml` — Comprehensive license policy (~110 SPDX identifiers)
+- `allow`: ~65 permissive / public-domain licenses
+- `warn`: ~35 weak / file-level copyleft licenses
+- `block`: ~20 strong copyleft, non-OSI, and commercial-restriction licenses
+
+#### Test suite — 532 tests, 93 % coverage
+- 78 new tests for `GitHubLicenseResolver` (all HTTP mocked)
+- `tests/conftest.py` with shared fixtures
+- 6 focused test modules: `test_license_db`, `test_models`, `test_scanner`,
+  `test_reporter`, `test_package_resolver`, `test_policy_yaml`
+
+#### Developer tooling
+- `Makefile` with `install`, `test`, `test-cov`, `test-fast`, `test-module`,
+  `test-xml`, `lint`, `format`, `typecheck`, `check`, `docs-serve`,
+  `docs-build`, `docs-deploy`, `build`, `scan`, `clean`, `install-docs`
+- GitHub Actions docs workflow → deploys MkDocs Material site automatically
+  on every master push
+- `prerelease_tests/` directory with full scan artefacts
+
+#### Documentation (GitHub Pages)
+- MkDocs Material site at <https://jokerz5575.github.io/vigil/>
+- Pages: Home, Getting Started, Policy Reference, Makefile, Test Suite,
+  API overview + 5 reference pages (LicenseDatabase, LicenseScanner,
+  GitHubLicenseResolver, Reporter, Models), Changelog
+
+### Fixed
+
+- **SSPL-1.0 dead-code bug** — the SSPL-specific `ERROR` check was
+  unreachable because the `NETWORK_COPYLEFT` family check fired first.
+  Swapped order so SSPL correctly returns `ERROR` even without an explicit
+  block policy.
+- Removed unused `import subprocess` / `import sys` from
+  `package_resolver.py` (F401)
+- Fixed f-string without placeholder in `reporter.py` (F541)
+- Fixed `raise ImportError` without exception chaining in `scanner.py` (B904)
+- Converted all `Optional[X]` to `X | None` (PEP 604) across all modules
+- Fixed unsorted import blocks (I001) across all five packages
+- Added `types-PyYAML` stub; removed `# type: ignore[import-untyped]`
+- Added `-> None` return type annotations to all CLI command functions
+
+### Known Issues (planned for v1.1)
+
+- GitHub scraper false positives: packages whose canonical repo has a
+  different name (e.g. `hatchling` at `pypa/hatch`) may match an unrelated
+  repo. Fix: cross-validate against PyPI `Home-page` / `Project-URL`.
+- 4 packages may be rate-limited during unauthenticated scans of large
+  environments.
+
+---
+
 ## [Unreleased]
 
 ### Added

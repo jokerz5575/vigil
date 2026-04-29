@@ -52,14 +52,15 @@ nav:
   - Getting Started: getting-started.md
   - Policy Reference: policy.md
   - Developer Guide:
-    - Makefile: makefile.md
-    - Test Suite: testing.md
+      - Makefile: makefile.md
+      - Test Suite: testing.md
   - API Reference:
-    - Overview: api/index.md
-    - LicenseDatabase: api/license-db.md
-    - LicenseScanner & Policy: api/scanner.md
-    - Reporter: api/reporter.md
-    - Models: api/models.md
+      - Overview: api/index.md
+      - LicenseDatabase: api/license-db.md
+      - LicenseScanner & Policy: api/scanner.md
+      - GitHub Resolver: api/github-resolver.md
+      - Reporter: api/reporter.md
+      - Models: api/models.md
   - Changelog: changelog.md
 
 # ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 # Test Suite Reference
 
-Vigil ships a comprehensive test suite with **454 tests** across seven focused modules,
-achieving **96 % overall coverage** of the core library code.  Tests are written with
+Vigil ships a comprehensive test suite with **532 tests** across eight focused modules,
+achieving **93 % overall coverage** of the core library code.  Tests are written with
 [pytest](https://pytest.org) and share fixtures defined in a central `conftest.py`.
 
 ---

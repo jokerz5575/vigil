@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T12:56:31.795477",
+  "generated_at": "2026-04-29T13:46:59.358965",
   "project_name": null,
   "total_dependencies": 65,
   "direct_dependencies": 65,
@@ -7,14 +7,27 @@
     {
       "name": "pip",
       "version": "26.0.1",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "The PyPA recommended tool for installing Python packages.",
-      "pypi_url": "https://pypi.org/project/pip/"
+      "pypi_url": "https://pypi.org/project/pip/",
+      "license_source_url": "https://github.com/pypa/pip/blob/26.0.1/LICENSE.txt",
+      "license_resolved_by": "github"
     },
     {
       "name": "trove-classifiers",
@@ -37,7 +50,9 @@
       "repository": null,
       "author": "The PyPI Admins",
       "description": "Canonical source for classifiers on PyPI (pypi.org).",
-      "pypi_url": "https://pypi.org/project/trove-classifiers/"
+      "pypi_url": "https://pypi.org/project/trove-classifiers/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "ptyprocess",
@@ -60,7 +75,9 @@
       "repository": null,
       "author": "Thomas Kluyver",
       "description": "Run a subprocess in a pseudo terminal",
-      "pypi_url": "https://pypi.org/project/ptyprocess/"
+      "pypi_url": "https://pypi.org/project/ptyprocess/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "distlib",
@@ -72,19 +89,34 @@
       "repository": null,
       "author": "Vinay Sajip",
       "description": "Distribution utilities",
-      "pypi_url": "https://pypi.org/project/distlib/"
+      "pypi_url": "https://pypi.org/project/distlib/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "uv",
       "version": "0.11.8",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-3-Clause",
+      "license_info": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-3-Clause.html"
+      },
       "is_direct": true,
       "homepage": "https://pypi.org/project/uv/",
       "repository": null,
       "author": null,
       "description": "An extremely fast Python package and project manager, written in Rust.",
-      "pypi_url": "https://pypi.org/project/uv/"
+      "pypi_url": "https://pypi.org/project/uv/",
+      "license_source_url": "https://github.com/Kludex/uvicorn/blob/0.11.8/LICENSE.md",
+      "license_resolved_by": "github"
     },
     {
       "name": "tomlkit",
@@ -107,7 +139,9 @@
       "repository": null,
       "author": "Sébastien Eustace",
       "description": "Style preserving TOML library",
-      "pypi_url": "https://pypi.org/project/tomlkit/"
+      "pypi_url": "https://pypi.org/project/tomlkit/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "tomli_w",
@@ -130,7 +164,9 @@
       "repository": null,
       "author": null,
       "description": "A lil' TOML writer",
-      "pypi_url": "https://pypi.org/project/tomli_w/"
+      "pypi_url": "https://pypi.org/project/tomli_w/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "shellingham",
@@ -153,7 +189,9 @@
       "repository": null,
       "author": "Tzu-ping Chung",
       "description": "Tool to Detect Surrounding Shell",
-      "pypi_url": "https://pypi.org/project/shellingham/"
+      "pypi_url": "https://pypi.org/project/shellingham/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "pyproject_hooks",
@@ -176,19 +214,34 @@
       "repository": null,
       "author": null,
       "description": "Wrappers to call pyproject.toml-based build backend hooks.",
-      "pypi_url": "https://pypi.org/project/pyproject_hooks/"
+      "pypi_url": "https://pypi.org/project/pyproject_hooks/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "Pygments",
       "version": "2.20.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-2-Clause",
+      "license_info": {
+        "spdx_id": "BSD-2-Clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-2-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Pygments is a syntax highlighting package written in Python.",
-      "pypi_url": "https://pypi.org/project/Pygments/"
+      "pypi_url": "https://pypi.org/project/Pygments/",
+      "license_source_url": "https://github.com/pygments/pygments/blob/2.20.0/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "pycparser",
@@ -200,7 +253,9 @@
       "repository": null,
       "author": null,
       "description": "C parser in Python",
-      "pypi_url": "https://pypi.org/project/pycparser/"
+      "pypi_url": "https://pypi.org/project/pycparser/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "pluggy",
@@ -223,7 +278,9 @@
       "repository": null,
       "author": null,
       "description": "plugin and hook calling mechanisms for python",
-      "pypi_url": "https://pypi.org/project/pluggy/"
+      "pypi_url": "https://pypi.org/project/pluggy/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "platformdirs",
@@ -246,7 +303,9 @@
       "repository": null,
       "author": null,
       "description": "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.",
-      "pypi_url": "https://pypi.org/project/platformdirs/"
+      "pypi_url": "https://pypi.org/project/platformdirs/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "pexpect",
@@ -269,7 +328,9 @@
       "repository": null,
       "author": "Noah Spurrier; Thomas Kluyver; Jeff Quast",
       "description": "Pexpect allows easy control of interactive console applications.",
-      "pypi_url": "https://pypi.org/project/pexpect/"
+      "pypi_url": "https://pypi.org/project/pexpect/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "pathspec",
@@ -292,7 +353,9 @@
       "repository": null,
       "author": null,
       "description": "Utility library for gitignore style pattern matching of file paths.",
-      "pypi_url": "https://pypi.org/project/pathspec/"
+      "pypi_url": "https://pypi.org/project/pathspec/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "packaging",
@@ -304,19 +367,34 @@
       "repository": null,
       "author": null,
       "description": "Core utilities for Python packages",
-      "pypi_url": "https://pypi.org/project/packaging/"
+      "pypi_url": "https://pypi.org/project/packaging/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "more-itertools",
       "version": "11.0.2",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "More routines for operating on iterables, beyond itertools",
-      "pypi_url": "https://pypi.org/project/more-itertools/"
+      "pypi_url": "https://pypi.org/project/more-itertools/",
+      "license_source_url": "https://github.com/more-itertools/more-itertools/blob/v11.0.2/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "mdurl",
@@ -339,19 +417,34 @@
       "repository": null,
       "author": null,
       "description": "Markdown URL utilities",
-      "pypi_url": "https://pypi.org/project/mdurl/"
+      "pypi_url": "https://pypi.org/project/mdurl/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "jeepney",
       "version": "0.9.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Low-level, pure Python DBus protocol wrapper.",
-      "pypi_url": "https://pypi.org/project/jeepney/"
+      "pypi_url": "https://pypi.org/project/jeepney/",
+      "license_source_url": "https://github.com/openkylin/jeepney/blob/openkylin/nile/LICENSE  [branch: openkylin/nile, no version tag found]",
+      "license_resolved_by": "github"
     },
     {
       "name": "jaraco.context",
@@ -363,19 +456,34 @@
       "repository": null,
       "author": null,
       "description": "Useful decorators and context managers",
-      "pypi_url": "https://pypi.org/project/jaraco.context/"
+      "pypi_url": "https://pypi.org/project/jaraco.context/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "idna",
       "version": "3.13",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-3-Clause",
+      "license_info": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-3-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Internationalized Domain Names in Applications (IDNA)",
-      "pypi_url": "https://pypi.org/project/idna/"
+      "pypi_url": "https://pypi.org/project/idna/",
+      "license_source_url": "https://github.com/kjd/idna/blob/v3.13/LICENSE.md",
+      "license_resolved_by": "github"
     },
     {
       "name": "h11",
@@ -398,7 +506,9 @@
       "repository": null,
       "author": "Nathaniel J. Smith",
       "description": "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1",
-      "pypi_url": "https://pypi.org/project/h11/"
+      "pypi_url": "https://pypi.org/project/h11/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "filelock",
@@ -421,19 +531,34 @@
       "repository": null,
       "author": null,
       "description": "A platform independent file lock.",
-      "pypi_url": "https://pypi.org/project/filelock/"
+      "pypi_url": "https://pypi.org/project/filelock/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "click",
       "version": "8.3.3",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-3-Clause",
+      "license_info": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-3-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Composable command line interface toolkit",
-      "pypi_url": "https://pypi.org/project/click/"
+      "pypi_url": "https://pypi.org/project/click/",
+      "license_source_url": "https://github.com/pallets/click/blob/8.3.3/LICENSE.txt",
+      "license_resolved_by": "github"
     },
     {
       "name": "certifi",
@@ -456,7 +581,9 @@
       "repository": null,
       "author": "Kenneth Reitz",
       "description": "Python package for providing Mozilla's CA Bundle.",
-      "pypi_url": "https://pypi.org/project/certifi/"
+      "pypi_url": "https://pypi.org/project/certifi/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "userpath",
@@ -479,7 +606,9 @@
       "repository": null,
       "author": null,
       "description": "Cross-platform tool for adding locations to the user PATH",
-      "pypi_url": "https://pypi.org/project/userpath/"
+      "pypi_url": "https://pypi.org/project/userpath/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "python-discovery",
@@ -502,7 +631,9 @@
       "repository": null,
       "author": null,
       "description": "Python interpreter discovery",
-      "pypi_url": "https://pypi.org/project/python-discovery/"
+      "pypi_url": "https://pypi.org/project/python-discovery/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "markdown-it-py",
@@ -525,7 +656,9 @@
       "repository": null,
       "author": null,
       "description": "Python port of markdown-it. Markdown parsing, done right!",
-      "pypi_url": "https://pypi.org/project/markdown-it-py/"
+      "pypi_url": "https://pypi.org/project/markdown-it-py/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "jaraco.functools",
@@ -537,7 +670,9 @@
       "repository": null,
       "author": null,
       "description": "Functools like those found in stdlib",
-      "pypi_url": "https://pypi.org/project/jaraco.functools/"
+      "pypi_url": "https://pypi.org/project/jaraco.functools/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "jaraco.classes",
@@ -560,7 +695,9 @@
       "repository": null,
       "author": "Jason R. Coombs",
       "description": "Utility functions for Python class constructs",
-      "pypi_url": "https://pypi.org/project/jaraco.classes/"
+      "pypi_url": "https://pypi.org/project/jaraco.classes/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "hyperlink",
@@ -583,7 +720,9 @@
       "repository": null,
       "author": "Mahmoud Hashemi and Glyph Lefkowitz",
       "description": "A featureful, immutable, and correct URL for Python.",
-      "pypi_url": "https://pypi.org/project/hyperlink/"
+      "pypi_url": "https://pypi.org/project/hyperlink/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "httpcore",
@@ -606,43 +745,84 @@
       "repository": null,
       "author": null,
       "description": "A minimal low-level HTTP client.",
-      "pypi_url": "https://pypi.org/project/httpcore/"
+      "pypi_url": "https://pypi.org/project/httpcore/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "hatchling",
       "version": "1.29.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "AGPL-3.0",
+      "license_info": {
+        "spdx_id": "AGPL-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "family": "network_copyleft",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": true,
+        "network_clause": true,
+        "url": "https://spdx.org/licenses/AGPL-3.0.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Modern, extensible Python build backend",
-      "pypi_url": "https://pypi.org/project/hatchling/"
+      "pypi_url": "https://pypi.org/project/hatchling/",
+      "license_source_url": "https://github.com/CrackingShells/Hatchling/blob/main/LICENSE  [branch: main, no version tag found]",
+      "license_resolved_by": "github"
     },
     {
       "name": "cffi",
       "version": "2.0.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": "Armin Rigo, Maciej Fijalkowski",
       "description": "Foreign Function Interface for Python calling C code.",
-      "pypi_url": "https://pypi.org/project/cffi/"
+      "pypi_url": "https://pypi.org/project/cffi/",
+      "license_source_url": "https://github.com/lexiforest/curl_cffi/blob/main/LICENSE  [branch: main, no version tag found]",
+      "license_resolved_by": "github"
     },
     {
       "name": "anyio",
       "version": "4.13.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "High-level concurrency and networking framework on top of asyncio or Trio",
-      "pypi_url": "https://pypi.org/project/anyio/"
+      "pypi_url": "https://pypi.org/project/anyio/",
+      "license_source_url": "https://github.com/agronholm/anyio/blob/4.13.0/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "virtualenv",
@@ -665,7 +845,9 @@
       "repository": null,
       "author": null,
       "description": "Virtual Python Environment builder",
-      "pypi_url": "https://pypi.org/project/virtualenv/"
+      "pypi_url": "https://pypi.org/project/virtualenv/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "rich",
@@ -688,7 +870,9 @@
       "repository": null,
       "author": "Will McGugan",
       "description": "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal",
-      "pypi_url": "https://pypi.org/project/rich/"
+      "pypi_url": "https://pypi.org/project/rich/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "httpx",
@@ -711,7 +895,9 @@
       "repository": null,
       "author": null,
       "description": "The next generation HTTP client.",
-      "pypi_url": "https://pypi.org/project/httpx/"
+      "pypi_url": "https://pypi.org/project/httpx/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "cryptography",
@@ -723,19 +909,34 @@
       "repository": null,
       "author": null,
       "description": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
-      "pypi_url": "https://pypi.org/project/cryptography/"
+      "pypi_url": "https://pypi.org/project/cryptography/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "SecretStorage",
       "version": "3.5.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-3-Clause",
+      "license_info": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-3-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Python bindings to FreeDesktop.org Secret Service API",
-      "pypi_url": "https://pypi.org/project/SecretStorage/"
+      "pypi_url": "https://pypi.org/project/SecretStorage/",
+      "license_source_url": "https://github.com/mitya57/secretstorage/blob/3.5.0/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "keyring",
@@ -747,19 +948,34 @@
       "repository": null,
       "author": null,
       "description": "Store and access your passwords safely.",
-      "pypi_url": "https://pypi.org/project/keyring/"
+      "pypi_url": "https://pypi.org/project/keyring/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "hatch",
       "version": "1.16.5",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Modern, extensible Python project management",
-      "pypi_url": "https://pypi.org/project/hatch/"
+      "pypi_url": "https://pypi.org/project/hatch/",
+      "license_source_url": "https://github.com/pypa/hatch/blob/hatch-v1.16.5/LICENSE.txt",
+      "license_resolved_by": "github"
     },
     {
       "name": "typing_extensions",
@@ -771,19 +987,34 @@
       "repository": null,
       "author": null,
       "description": "Backported and Experimental Type Hints for Python 3.9+",
-      "pypi_url": "https://pypi.org/project/typing_extensions/"
+      "pypi_url": "https://pypi.org/project/typing_extensions/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "iniconfig",
       "version": "2.3.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "brain-dead simple config-ini parsing",
-      "pypi_url": "https://pypi.org/project/iniconfig/"
+      "pypi_url": "https://pypi.org/project/iniconfig/",
+      "license_source_url": "https://github.com/pytest-dev/iniconfig/blob/v2.3.0/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "annotated-types",
@@ -806,55 +1037,109 @@
       "repository": null,
       "author": null,
       "description": "Reusable constraint types to use with typing.Annotated",
-      "pypi_url": "https://pypi.org/project/annotated-types/"
+      "pypi_url": "https://pypi.org/project/annotated-types/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "typing-inspection",
       "version": "0.4.2",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Runtime typing introspection tools",
-      "pypi_url": "https://pypi.org/project/typing-inspection/"
+      "pypi_url": "https://pypi.org/project/typing-inspection/",
+      "license_source_url": "https://github.com/pydantic/typing-inspection/blob/v0.4.2/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "pytest",
       "version": "9.0.3",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": "Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Freya Bruhin, Others (See AUTHORS)",
       "description": "pytest: simple powerful testing with Python",
-      "pypi_url": "https://pypi.org/project/pytest/"
+      "pypi_url": "https://pypi.org/project/pytest/",
+      "license_source_url": "https://github.com/pytest-dev/pytest/blob/9.0.3/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "pydantic_core",
       "version": "2.46.3",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": "https://github.com/pydantic/pydantic",
       "repository": null,
       "author": null,
       "description": "Core functionality for Pydantic validation and serialization",
-      "pypi_url": "https://pypi.org/project/pydantic_core/"
+      "pypi_url": "https://pypi.org/project/pydantic_core/",
+      "license_source_url": "https://github.com/pydantic/pydantic-core/blob/main/LICENSE  [branch: main, no version tag found]",
+      "license_resolved_by": "github"
     },
     {
       "name": "pydantic",
       "version": "2.13.3",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Data validation using Python type hints",
-      "pypi_url": "https://pypi.org/project/pydantic/"
+      "pypi_url": "https://pypi.org/project/pydantic/",
+      "license_source_url": "https://github.com/pydantic/pydantic/blob/v2.13.3/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "PyYAML",
@@ -877,19 +1162,34 @@
       "repository": null,
       "author": "Kirill Simonov",
       "description": "YAML parser and emitter for Python",
-      "pypi_url": "https://pypi.org/project/PyYAML/"
+      "pypi_url": "https://pypi.org/project/PyYAML/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "MarkupSafe",
       "version": "3.0.3",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-3-Clause",
+      "license_info": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-3-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Safely add untrusted strings to HTML/XML markup.",
-      "pypi_url": "https://pypi.org/project/MarkupSafe/"
+      "pypi_url": "https://pypi.org/project/MarkupSafe/",
+      "license_source_url": "https://github.com/pallets/markupsafe/blob/3.0.3/LICENSE.txt",
+      "license_resolved_by": "github"
     },
     {
       "name": "Jinja2",
@@ -912,7 +1212,9 @@
       "repository": null,
       "author": null,
       "description": "A very fast and expressive template engine.",
-      "pypi_url": "https://pypi.org/project/Jinja2/"
+      "pypi_url": "https://pypi.org/project/Jinja2/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "ruff",
@@ -924,7 +1226,9 @@
       "repository": null,
       "author": null,
       "description": "An extremely fast Python linter and code formatter, written in Rust.",
-      "pypi_url": "https://pypi.org/project/ruff/"
+      "pypi_url": "https://pypi.org/project/ruff/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "mypy_extensions",
@@ -936,19 +1240,34 @@
       "repository": null,
       "author": null,
       "description": "Type system extensions for programs checked with the mypy type checker.",
-      "pypi_url": "https://pypi.org/project/mypy_extensions/"
+      "pypi_url": "https://pypi.org/project/mypy_extensions/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "librt",
       "version": "0.9.0",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "BSD-2-Clause",
+      "license_info": {
+        "spdx_id": "BSD-2-Clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/BSD-2-Clause.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Mypyc runtime library",
-      "pypi_url": "https://pypi.org/project/librt/"
+      "pypi_url": "https://pypi.org/project/librt/",
+      "license_source_url": "https://github.com/chrippa/python-librtmp/blob/master/LICENSE  [branch: master, no version tag found]",
+      "license_resolved_by": "github"
     },
     {
       "name": "coverage",
@@ -971,19 +1290,34 @@
       "repository": null,
       "author": "Ned Batchelder and 253 others",
       "description": "Code coverage measurement for Python",
-      "pypi_url": "https://pypi.org/project/coverage/"
+      "pypi_url": "https://pypi.org/project/coverage/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "annotated-doc",
       "version": "0.0.4",
-      "license_spdx": null,
-      "license_info": null,
+      "license_spdx": "MIT",
+      "license_info": {
+        "spdx_id": "MIT",
+        "name": "MIT License",
+        "family": "permissive",
+        "osi_approved": true,
+        "fsf_libre": true,
+        "allows_commercial_use": true,
+        "requires_attribution": true,
+        "requires_share_alike": false,
+        "network_clause": false,
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
       "is_direct": true,
       "homepage": null,
       "repository": null,
       "author": null,
       "description": "Document parameters, class attributes, return types, and variables inline, with Annotated.",
-      "pypi_url": "https://pypi.org/project/annotated-doc/"
+      "pypi_url": "https://pypi.org/project/annotated-doc/",
+      "license_source_url": "https://github.com/fastapi/annotated-doc/blob/0.0.4/LICENSE",
+      "license_resolved_by": "github"
     },
     {
       "name": "pytest-asyncio",
@@ -995,7 +1329,9 @@
       "repository": null,
       "author": null,
       "description": "Pytest support for asyncio",
-      "pypi_url": "https://pypi.org/project/pytest-asyncio/"
+      "pypi_url": "https://pypi.org/project/pytest-asyncio/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "mypy",
@@ -1007,7 +1343,9 @@
       "repository": null,
       "author": null,
       "description": "Optional static typing for Python",
-      "pypi_url": "https://pypi.org/project/mypy/"
+      "pypi_url": "https://pypi.org/project/mypy/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "vigil-core",
@@ -1030,7 +1368,9 @@
       "repository": null,
       "author": null,
       "description": "Core shared library for the Vigil compliance toolkit",
-      "pypi_url": "https://pypi.org/project/vigil-core/"
+      "pypi_url": "https://pypi.org/project/vigil-core/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "typer",
@@ -1042,7 +1382,9 @@
       "repository": null,
       "author": null,
       "description": "Typer, build great CLIs. Easy to code. Based on Python type hints.",
-      "pypi_url": "https://pypi.org/project/typer/"
+      "pypi_url": "https://pypi.org/project/typer/",
+      "license_source_url": null,
+      "license_resolved_by": null
     },
     {
       "name": "pytest-cov",
@@ -1065,7 +1407,9 @@
       "repository": null,
       "author": null,
       "description": "Pytest plugin for measuring coverage.",
-      "pypi_url": "https://pypi.org/project/pytest-cov/"
+      "pypi_url": "https://pypi.org/project/pytest-cov/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "vigil-licenses",
@@ -1088,7 +1432,9 @@
       "repository": null,
       "author": null,
       "description": "License conflict detection and compliance reporting for Python projects",
-      "pypi_url": "https://pypi.org/project/vigil-licenses/"
+      "pypi_url": "https://pypi.org/project/vigil-licenses/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "vigil-cli",
@@ -1111,7 +1457,9 @@
       "repository": null,
       "author": null,
       "description": "Command-line interface for the Vigil compliance toolkit",
-      "pypi_url": "https://pypi.org/project/vigil-cli/"
+      "pypi_url": "https://pypi.org/project/vigil-cli/",
+      "license_source_url": null,
+      "license_resolved_by": "pypi"
     },
     {
       "name": "types-PyYAML",
@@ -1123,7 +1471,9 @@
       "repository": null,
       "author": null,
       "description": "Typing stubs for PyYAML",
-      "pypi_url": "https://pypi.org/project/types-PyYAML/"
+      "pypi_url": "https://pypi.org/project/types-PyYAML/",
+      "license_source_url": null,
+      "license_resolved_by": null
     }
   ],
   "conflicts": [
@@ -1140,49 +1490,38 @@
       "severity": "warning",
       "reason": "MPL-2.0 is flagged for review in your policy.",
       "recommendation": null
+    },
+    {
+      "package": "hatchling",
+      "license_spdx": "AGPL-3.0",
+      "severity": "error",
+      "reason": "AGPL-3.0 is explicitly blocked by your policy.",
+      "recommendation": "Find an alternative package with a compatible license."
     }
   ],
   "unknown_licenses": [
-    "pip (UNKNOWN)",
     "distlib (PSF-2.0)",
-    "uv (UNKNOWN)",
-    "Pygments (UNKNOWN)",
     "pycparser (UNKNOWN)",
     "packaging (UNKNOWN)",
-    "more-itertools (UNKNOWN)",
-    "jeepney (UNKNOWN)",
     "jaraco.context (UNKNOWN)",
-    "idna (UNKNOWN)",
-    "click (UNKNOWN)",
     "jaraco.functools (UNKNOWN)",
-    "hatchling (UNKNOWN)",
-    "cffi (UNKNOWN)",
-    "anyio (UNKNOWN)",
     "cryptography (UNKNOWN)",
-    "SecretStorage (UNKNOWN)",
     "keyring (UNKNOWN)",
-    "hatch (UNKNOWN)",
     "typing_extensions (UNKNOWN)",
-    "iniconfig (UNKNOWN)",
-    "typing-inspection (UNKNOWN)",
-    "pytest (UNKNOWN)",
-    "pydantic_core (UNKNOWN)",
-    "pydantic (UNKNOWN)",
-    "MarkupSafe (UNKNOWN)",
     "ruff (UNKNOWN)",
     "mypy_extensions (UNKNOWN)",
-    "librt (UNKNOWN)",
-    "annotated-doc (UNKNOWN)",
     "pytest-asyncio (UNKNOWN)",
     "mypy (UNKNOWN)",
     "typer (UNKNOWN)",
     "types-PyYAML (UNKNOWN)"
   ],
   "license_summary": {
+    "MIT": 30,
     "Apache-2.0": 5,
     "ISC": 3,
-    "MIT": 18,
+    "BSD-3-Clause": 8,
+    "BSD-2-Clause": 2,
     "MPL-2.0": 2,
-    "BSD-3-Clause": 3
+    "AGPL-3.0": 1
   }
 }

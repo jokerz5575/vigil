@@ -14,6 +14,7 @@ and reporting stack.
 | `vigil-core` | [`vigil_core.license_db`](license-db.md) | `LicenseDatabase` |
 | `vigil-core` | [`vigil_core.models`](models.md) | `LicenseInfo`, `DependencyInfo`, `ComplianceReport`, `LicenseConflict` |
 | `vigil-core` | `vigil_core.package_resolver` | `PackageResolver` |
+| `vigil-core` | [`vigil_core.github_resolver`](github-resolver.md) | `GitHubLicenseResolver`, `GitHubLicenseResult` |
 | `vigil-licenses` | [`vigil_licenses.scanner`](scanner.md) | `LicenseScanner`, `LicensePolicy` |
 | `vigil-licenses` | [`vigil_licenses.reporter`](reporter.md) | `generate_report`, `ReportFormat` |
 
@@ -81,5 +82,6 @@ generate_report(report, ReportFormat.TERMINAL)
 |---|---|
 | [LicenseDatabase](license-db.md) | Built-in SPDX database, alias normalization, conflict detection |
 | [LicenseScanner & Policy](scanner.md) | `LicensePolicy` construction, `LicenseScanner.scan()` evaluation logic |
+| [GitHubLicenseResolver](github-resolver.md) | GitHub scraper — finds licenses for unknown packages via the GitHub API |
 | [Reporter](reporter.md) | Terminal, JSON, and HTML report generation |
 | [Models](models.md) | All Pydantic models and enums with field-level documentation |
