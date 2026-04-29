@@ -787,10 +787,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#from_dictdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        from_dict(data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#from_yamlpath" class="md-nav__link">
     <span class="md-ellipsis">
       
         from_yaml(path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licensescanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LicenseScanner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LicenseScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructor
       
     </span>
   </a>
@@ -810,10 +849,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#per-dependency-evaluation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-dependency evaluation order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scanning-from-requirementstxt" class="md-nav__link">
     <span class="md-ellipsis">
       
         Scanning from requirements.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-policy-from-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a policy from YAML
       
     </span>
   </a>
@@ -979,10 +1051,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#from_dictdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        from_dict(data)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#from_yamlpath" class="md-nav__link">
     <span class="md-ellipsis">
       
         from_yaml(path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licensescanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LicenseScanner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LicenseScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructor
       
     </span>
   </a>
@@ -1002,10 +1113,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#per-dependency-evaluation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-dependency evaluation order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scanning-from-requirementstxt" class="md-nav__link">
     <span class="md-ellipsis">
       
         Scanning from requirements.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-policy-from-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a policy from YAML
       
     </span>
   </a>
@@ -1052,100 +1196,120 @@ environment, resolves licenses, and produces a <code>ComplianceReport</code>.</p
 <h2 id="licensepolicy"><code>LicensePolicy</code><a class="headerlink" href="#licensepolicy" title="Permanent link">&para;</a></h2>
 <p>Defines the allow-list, block-list, warn-list, and unknown-license behaviour for a scan.</p>
 <h3 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h3>
-<p>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
-LicensePolicy(
-    allow: list[str] | None = None,
-    block: list[str] | None = None,
-    warn:  list[str] | None = None,
-    fail_on_unknown: bool = False,
-)
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>| Parameter | Type | Default | Description |
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|---|---|---|---|
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>| `allow` | `list[str] \| None` | `None` | If set, only these SPDX IDs are allowed without conflict. Any license absent from the list becomes an `ERROR`. A value of `None` disables the allow-list check entirely. |
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| `block` | `list[str] \| None` | `[]` | SPDX IDs that always produce an `ERROR`, regardless of the allow list. |
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>| `warn` | `list[str] \| None` | `[]` | SPDX IDs that produce a `WARNING`.  Processed *before* the allow-list check (see note below). |
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| `fail_on_unknown` | `bool` | `False` | If `True`, any dependency whose license cannot be identified is added as an `ERROR` conflict in the report. |
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>!!! warning &quot;Warn-before-allow precedence&quot;
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    A license that appears in `warn` generates a `WARNING` even if it is *not* in the
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    `allow` list.  The warn check short-circuits the rest of the evaluation for that
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    dependency, so the allow-list `ERROR` is never reached.  Use this intentionally
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    when you want to flag a license for review without hard-failing the scan.
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    ```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    # LGPL-3.0 is in warn — it produces a WARNING,
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    # even though it is not in the allow list.
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    policy = LicensePolicy(
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        allow=[&quot;MIT&quot;, &quot;Apache-2.0&quot;],
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        warn=[&quot;LGPL-3.0&quot;],
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    )
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ```
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>### `from_dict(data)`
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>@classmethod
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>def from_dict(cls, data: dict) -&gt; LicensePolicy
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">LicensePolicy</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">allow</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">block</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">warn</span><span class="p">:</span>  <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">fail_on_unknown</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allow</code></td>
+<td><code>list[str] \| None</code></td>
+<td><code>None</code></td>
+<td>If set, only these SPDX IDs are allowed without conflict. Any license absent from the list becomes an <code>ERROR</code>. A value of <code>None</code> disables the allow-list check entirely.</td>
+</tr>
+<tr>
+<td><code>block</code></td>
+<td><code>list[str] \| None</code></td>
+<td><code>[]</code></td>
+<td>SPDX IDs that always produce an <code>ERROR</code>, regardless of the allow list.</td>
+</tr>
+<tr>
+<td><code>warn</code></td>
+<td><code>list[str] \| None</code></td>
+<td><code>[]</code></td>
+<td>SPDX IDs that produce a <code>WARNING</code>.  Processed <em>before</em> the allow-list check (see note below).</td>
+</tr>
+<tr>
+<td><code>fail_on_unknown</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, any dependency whose license cannot be identified is added as an <code>ERROR</code> conflict in the report.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warn-before-allow precedence</p>
+<p>A license that appears in <code>warn</code> generates a <code>WARNING</code> even if it is <em>not</em> in the
+<code>allow</code> list.  The warn check short-circuits the rest of the evaluation for that
+dependency, so the allow-list <code>ERROR</code> is never reached.  Use this intentionally
+when you want to flag a license for review without hard-failing the scan.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># LGPL-3.0 is in warn — it produces a WARNING,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># even though it is not in the allow list.</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="p">(</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">allow</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span> <span class="s2">&quot;Apache-2.0&quot;</span><span class="p">],</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">warn</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LGPL-3.0&quot;</span><span class="p">],</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<h3 id="from_dictdata"><code>from_dict(data)</code><a class="headerlink" href="#from_dictdata" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@classmethod</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LicensePolicy</span>
+</span></code></pre></div>
 <p>Constructs a <code>LicensePolicy</code> from a plain Python dict.  Supports two input shapes:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Nested (policy wrapper)</label><label for="__tabbed_1_2">Flat (no wrapper)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><code>vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-9
-policy = LicensePolicy.from_dict({
-    "policy": {
-        "allow": ["MIT", "Apache-2.0", "BSD-3-Clause"],
-        "block": ["GPL-3.0", "AGPL-3.0", "SSPL-1.0"],
-        "warn":  ["LGPL-2.1", "LGPL-3.0", "MPL-2.0"],
-        "fail_on_unknown": False,
-    }
-})</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s2">&quot;allow&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span> <span class="s2">&quot;Apache-2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;BSD-3-Clause&quot;</span><span class="p">],</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">&quot;block&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;AGPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;SSPL-1.0&quot;</span><span class="p">],</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s2">&quot;warn&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;LGPL-2.1&quot;</span><span class="p">,</span> <span class="s2">&quot;LGPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;MPL-2.0&quot;</span><span class="p">],</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="s2">&quot;fail_on_unknown&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">})</span>
+</span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><code>vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-7
-policy = LicensePolicy.from_dict({
-    "allow": ["MIT", "Apache-2.0"],
-    "block": ["GPL-3.0"],
-    "warn":  ["LGPL-3.0"],
-})</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">&quot;allow&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span> <span class="s2">&quot;Apache-2.0&quot;</span><span class="p">],</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="s2">&quot;block&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GPL-3.0&quot;</span><span class="p">],</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="s2">&quot;warn&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;LGPL-3.0&quot;</span><span class="p">],</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">})</span>
+</span></code></pre></div>
 </div>
 </div>
 </div>
 <p>Missing keys fall back to their constructor defaults (<code>allow=None</code>, <code>block=[]</code>, etc.).</p>
 <h3 id="from_yamlpath"><code>from_yaml(path)</code><a class="headerlink" href="#from_yamlpath" title="Permanent link">&para;</a></h3>
-<p>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
-@classmethod
-def from_yaml(cls, path: str | Path) -&gt; LicensePolicy
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Reads a YAML file from `path` and delegates to `from_dict()`.  Requires
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[PyYAML](https://pypi.org/project/PyYAML/) to be installed.
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>policy = LicensePolicy.from_yaml(&quot;vigil.yaml&quot;)
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a># or
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>policy = LicensePolicy.from_yaml(Path(__file__).parent / &quot;policy.yaml&quot;)
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@classmethod</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">from_yaml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LicensePolicy</span>
+</span></code></pre></div>
+<p>Reads a YAML file from <code>path</code> and delegates to <code>from_dict()</code>.  Requires
+<a href="https://pypi.org/project/PyYAML/">PyYAML</a> to be installed.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s2">&quot;vigil.yaml&quot;</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># or</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;policy.yaml&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>If PyYAML is not installed the method raises:</p>
-<p>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-3
-ImportError: PyYAML is required to load policy from YAML.
-             Install it with: pip install pyyaml
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>!!! tip &quot;YAML policy format&quot;
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    See the [Policy Reference](../policy.md) page for the full `vigil.yaml` schema
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    and a complete annotated example.
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>---
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>## `LicenseScanner`
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Scans Python dependencies against a `LicensePolicy` and returns a `ComplianceReport`.
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>### Constructor
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-6
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>LicenseScanner(
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    policy: LicensePolicy | None = None,
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    license_db: LicenseDatabase | None = None,
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>)
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ne">ImportError</span><span class="p">:</span> <span class="n">PyYAML</span> <span class="ow">is</span> <span class="n">required</span> <span class="n">to</span> <span class="n">load</span> <span class="n">policy</span> <span class="kn">from</span><span class="w"> </span><span class="nn">YAML.</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>             <span class="n">Install</span> <span class="n">it</span> <span class="k">with</span><span class="p">:</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyyaml</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">YAML policy format</p>
+<p>See the <a href="../../policy/">Policy Reference</a> page for the full <code>vigil.yaml</code> schema
+and a complete annotated example.</p>
+</div>
+<hr />
+<h2 id="licensescanner"><code>LicenseScanner</code><a class="headerlink" href="#licensescanner" title="Permanent link">&para;</a></h2>
+<p>Scans Python dependencies against a <code>LicensePolicy</code> and returns a <code>ComplianceReport</code>.</p>
+<h3 id="constructor_1">Constructor<a class="headerlink" href="#constructor_1" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">LicenseScanner</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">policy</span><span class="p">:</span> <span class="n">LicensePolicy</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">license_db</span><span class="p">:</span> <span class="n">LicenseDatabase</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">)</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1173,89 +1337,107 @@ ImportError: PyYAML is required to load policy from YAML.
 <p>Both parameters accept pre-constructed instances, which is useful for dependency
 injection in tests (see <a href="../../testing/#test-architecture">Test Architecture</a>).</p>
 <h3 id="scanrequirements_file-project_name"><code>scan(requirements_file, project_name)</code><a class="headerlink" href="#scanrequirements_file-project_name" title="Permanent link">&para;</a></h3>
-<p>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-6
-def scan(
-    self,
-    requirements_file: str | None = None,
-    project_name: str | None = None,
-) -&gt; ComplianceReport
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Resolves dependencies, evaluates each one against the policy, and returns a
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>`ComplianceReport`.
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>| Parameter | Type | Default | Description |
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>|---|---|---|---|
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>| `requirements_file` | `str \| None` | `None` | Path to a `requirements.txt` file. If `None`, scans all packages installed in the current Python environment. |
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>| `project_name` | `str \| None` | `None` | Embedded in the report&#39;s `project_name` field. |
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>#### Per-dependency evaluation order
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>For each resolved `DependencyInfo` the scanner applies the following logic:
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>1. **Unknown license** — if `dep.license_info` is `None`, add `&quot;{name} ({raw})&quot;` to
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>   `report.unknown_licenses`.  If `policy.fail_on_unknown` is `True`, also append an
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>   `ERROR` conflict.  Skip remaining checks for this dependency.
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>2. **Warn list** — if `dep.license_info.spdx_id` is in `policy.warn`, append a
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>   `WARNING` conflict and skip to the next dependency.  The allow-list check is
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>   *not* evaluated.
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>3. **Full conflict check** — call
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>   `db.check_conflict(name, spdx, policy_allow, policy_block)`.  Append the returned
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>   `LicenseConflict` if it is not `None`.
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>#### Full example
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-30
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>from vigil_licenses.scanner import LicensePolicy, LicenseScanner
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>from vigil_licenses.reporter import generate_report, ReportFormat
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a># 1. Define a policy
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>policy = LicensePolicy(
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    allow=[
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>        &quot;MIT&quot;, &quot;Apache-2.0&quot;, &quot;BSD-2-Clause&quot;, &quot;BSD-3-Clause&quot;,
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>        &quot;ISC&quot;, &quot;Unlicense&quot;, &quot;CC0-1.0&quot;,
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    ],
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    block=[&quot;GPL-2.0&quot;, &quot;GPL-3.0&quot;, &quot;AGPL-3.0&quot;, &quot;SSPL-1.0&quot;],
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    warn=[&quot;LGPL-2.1&quot;, &quot;LGPL-3.0&quot;, &quot;MPL-2.0&quot;],
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    fail_on_unknown=False,
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>)
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a># 2. Create the scanner
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>scanner = LicenseScanner(policy=policy)
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a># 3. Scan — either from requirements.txt …
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>report = scanner.scan(
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    requirements_file=&quot;requirements.txt&quot;,
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>    project_name=&quot;my-project&quot;,
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>)
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a># … or the full installed environment
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a># report = scanner.scan(project_name=&quot;my-project&quot;)
-</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
-</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a># 4. Inspect the report
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>print(f&quot;Scanned {report.total_dependencies} packages&quot;)
-</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>print(f&quot;Errors : {sum(1 for c in report.conflicts if c.severity.value == &#39;error&#39;)}&quot;)
-</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>print(f&quot;Warnings: {sum(1 for c in report.conflicts if c.severity.value == &#39;warning&#39;)}&quot;)
-</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>
-</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>if report.has_errors:
-</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>    raise SystemExit(1)
-</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>
-</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a># 5. Render a report
-</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>generate_report(report, ReportFormat.TERMINAL)
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">scan</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="bp">self</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">requirements_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">project_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ComplianceReport</span>
+</span></code></pre></div>
+<p>Resolves dependencies, evaluates each one against the policy, and returns a
+<code>ComplianceReport</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>requirements_file</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Path to a <code>requirements.txt</code> file. If <code>None</code>, scans all packages installed in the current Python environment.</td>
+</tr>
+<tr>
+<td><code>project_name</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Embedded in the report's <code>project_name</code> field.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="per-dependency-evaluation-order">Per-dependency evaluation order<a class="headerlink" href="#per-dependency-evaluation-order" title="Permanent link">&para;</a></h4>
+<p>For each resolved <code>DependencyInfo</code> the scanner applies the following logic:</p>
+<ol>
+<li>
+<p><strong>Unknown license</strong> — if <code>dep.license_info</code> is <code>None</code>, add <code>"{name} ({raw})"</code> to
+   <code>report.unknown_licenses</code>.  If <code>policy.fail_on_unknown</code> is <code>True</code>, also append an
+   <code>ERROR</code> conflict.  Skip remaining checks for this dependency.</p>
+</li>
+<li>
+<p><strong>Warn list</strong> — if <code>dep.license_info.spdx_id</code> is in <code>policy.warn</code>, append a
+   <code>WARNING</code> conflict and skip to the next dependency.  The allow-list check is
+   <em>not</em> evaluated.</p>
+</li>
+<li>
+<p><strong>Full conflict check</strong> — call
+   <code>db.check_conflict(name, spdx, policy_allow, policy_block)</code>.  Append the returned
+   <code>LicenseConflict</code> if it is not <code>None</code>.</p>
+</li>
+</ol>
+<h4 id="full-example">Full example<a class="headerlink" href="#full-example" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.scanner</span><span class="w"> </span><span class="kn">import</span> <span class="n">LicensePolicy</span><span class="p">,</span> <span class="n">LicenseScanner</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># 1. Define a policy</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">LicensePolicy</span><span class="p">(</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">allow</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="s2">&quot;MIT&quot;</span><span class="p">,</span> <span class="s2">&quot;Apache-2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;BSD-2-Clause&quot;</span><span class="p">,</span> <span class="s2">&quot;BSD-3-Clause&quot;</span><span class="p">,</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="s2">&quot;ISC&quot;</span><span class="p">,</span> <span class="s2">&quot;Unlicense&quot;</span><span class="p">,</span> <span class="s2">&quot;CC0-1.0&quot;</span><span class="p">,</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="p">],</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">block</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GPL-2.0&quot;</span><span class="p">,</span> <span class="s2">&quot;GPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;AGPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;SSPL-1.0&quot;</span><span class="p">],</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">warn</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;LGPL-2.1&quot;</span><span class="p">,</span> <span class="s2">&quot;LGPL-3.0&quot;</span><span class="p">,</span> <span class="s2">&quot;MPL-2.0&quot;</span><span class="p">],</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">fail_on_unknown</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># 2. Create the scanner</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="n">scanner</span> <span class="o">=</span> <span class="n">LicenseScanner</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">policy</span><span class="p">)</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="c1"># 3. Scan — either from requirements.txt …</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="n">report</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="n">requirements_file</span><span class="o">=</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    <span class="n">project_name</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span><span class="p">,</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="p">)</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="c1"># … or the full installed environment</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="c1"># report = scanner.scan(project_name=&quot;my-project&quot;)</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="c1"># 4. Inspect the report</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scanned </span><span class="si">{</span><span class="n">report</span><span class="o">.</span><span class="n">total_dependencies</span><span class="si">}</span><span class="s2"> packages&quot;</span><span class="p">)</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Errors : </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">report</span><span class="o">.</span><span class="n">conflicts</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warnings: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">report</span><span class="o">.</span><span class="n">conflicts</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">c</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;warning&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="k">if</span> <span class="n">report</span><span class="o">.</span><span class="n">has_errors</span><span class="p">:</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="c1"># 5. Render a report</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span><span class="p">)</span>
+</span></code></pre></div>
 <h4 id="scanning-from-requirementstxt">Scanning from <code>requirements.txt</code><a class="headerlink" href="#scanning-from-requirementstxt" title="Permanent link">&para;</a></h4>
-<p>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-8
-scanner = LicenseScanner(policy=LicensePolicy.from_yaml("vigil.yaml"))
-report  = scanner.scan(requirements_file="requirements.txt")</p>
-<h1 id="all-returned-dependencyinfo-objects-have-is_directtrue">All returned DependencyInfo objects have is_direct=True<a class="headerlink" href="#all-returned-dependencyinfo-objects-have-is_directtrue" title="Permanent link">&para;</a></h1>
-<p>assert all(d.is_direct for d in report.dependencies)
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#### Loading a policy from YAML
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>```vigil/vigil-licenses/src/vigil_licenses/scanner.py#L1-4
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>policy  = LicensePolicy.from_yaml(&quot;vigil.yaml&quot;)
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>scanner = LicenseScanner(policy=policy)
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>report  = scanner.scan()
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">scanner</span> <span class="o">=</span> <span class="n">LicenseScanner</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s2">&quot;vigil.yaml&quot;</span><span class="p">))</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">report</span>  <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">requirements_file</span><span class="o">=</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># All returned DependencyInfo objects have is_direct=True</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">is_direct</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">report</span><span class="o">.</span><span class="n">dependencies</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="loading-a-policy-from-yaml">Loading a policy from YAML<a class="headerlink" href="#loading-a-policy-from-yaml" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">policy</span>  <span class="o">=</span> <span class="n">LicensePolicy</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s2">&quot;vigil.yaml&quot;</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">scanner</span> <span class="o">=</span> <span class="n">LicenseScanner</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">policy</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">report</span>  <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">scan</span><span class="p">()</span>
+</span></code></pre></div>
 
 
 

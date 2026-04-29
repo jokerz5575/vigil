@@ -811,14 +811,97 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="generate_report(report, fmt, output_path)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Examples">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal output
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#json-output" class="md-nav__link">
     <span class="md-ellipsis">
       
         JSON output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Private Helpers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Private Helpers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_render_terminalreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_terminal(report)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_render_jsonreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_json(report)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_render_htmlreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_html(report)
       
     </span>
   </a>
@@ -947,14 +1030,97 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="generate_report(report, fmt, output_path)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage Examples">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal output
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#json-output" class="md-nav__link">
     <span class="md-ellipsis">
       
         JSON output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#private-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Private Helpers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Private Helpers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_render_terminalreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_terminal(report)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_render_jsonreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_json(report)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_render_htmlreport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        _render_html(report)
       
     </span>
   </a>
@@ -993,60 +1159,97 @@
 a rich terminal table, a JSON string, or a self-contained HTML page.</p>
 <hr />
 <h2 id="reportformat"><code>ReportFormat</code><a class="headerlink" href="#reportformat" title="Permanent link">&para;</a></h2>
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
-class ReportFormat(str, Enum):
-    TERMINAL = "terminal"
-    JSON     = "json"
-    HTML     = "html"
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>| Value | String | Description |
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|---|---|---|
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>| `ReportFormat.TERMINAL` | `&quot;terminal&quot;` | Renders a rich table directly to stdout using the `rich` library |
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| `ReportFormat.JSON` | `&quot;json&quot;` | Returns a pretty-printed JSON string (Pydantic `model_dump_json`) |
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>| `ReportFormat.HTML` | `&quot;html&quot;` | Returns a self-contained HTML page rendered from a Jinja2 template |
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Because `ReportFormat` extends `str`, the values can be compared to plain strings:
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>assert ReportFormat.JSON == &quot;json&quot;
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>assert ReportFormat.TERMINAL == &quot;terminal&quot;
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>assert ReportFormat.HTML == &quot;html&quot;
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ReportFormat</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">TERMINAL</span> <span class="o">=</span> <span class="s2">&quot;terminal&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">JSON</span>     <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">HTML</span>     <span class="o">=</span> <span class="s2">&quot;html&quot;</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>String</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ReportFormat.TERMINAL</code></td>
+<td><code>"terminal"</code></td>
+<td>Renders a rich table directly to stdout using the <code>rich</code> library</td>
+</tr>
+<tr>
+<td><code>ReportFormat.JSON</code></td>
+<td><code>"json"</code></td>
+<td>Returns a pretty-printed JSON string (Pydantic <code>model_dump_json</code>)</td>
+</tr>
+<tr>
+<td><code>ReportFormat.HTML</code></td>
+<td><code>"html"</code></td>
+<td>Returns a self-contained HTML page rendered from a Jinja2 template</td>
+</tr>
+</tbody>
+</table>
+<p>Because <code>ReportFormat</code> extends <code>str</code>, the values can be compared to plain strings:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span> <span class="o">==</span> <span class="s2">&quot;terminal&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">assert</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span> <span class="o">==</span> <span class="s2">&quot;html&quot;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="generate_reportreport-fmt-output_path"><code>generate_report(report, fmt, output_path)</code><a class="headerlink" href="#generate_reportreport-fmt-output_path" title="Permanent link">&para;</a></h2>
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
-def generate_report(
-    report: ComplianceReport,
-    fmt: ReportFormat = ReportFormat.TERMINAL,
-    output_path: str | Path | None = None,
-) -&gt; str
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>| Parameter | Type | Default | Description |
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|---|---|---|---|
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>| `report` | `ComplianceReport` | — | The report object to render |
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>| `fmt` | `ReportFormat` | `TERMINAL` | Output format |
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>| `output_path` | `str \| Path \| None` | `None` | If provided, the rendered content is written to this file path (not applicable for `TERMINAL`) |
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>**Return value:**
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>- `TERMINAL` — renders directly to stdout and returns `&quot;&quot;`.
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>- `JSON` — returns the JSON string.
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>- `HTML` — returns the HTML string.
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>When `output_path` is given for `JSON` or `HTML`, the content is **both** returned
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>*and* written to disk.
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>---
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>## Usage Examples
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>### Terminal output
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>from vigil_licenses.reporter import generate_report, ReportFormat
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a># Prints a rich table to the terminal, returns &quot;&quot;
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>result = generate_report(report, ReportFormat.TERMINAL)
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>assert result == &quot;&quot;
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_report</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">fmt</span><span class="p">:</span> <span class="n">ReportFormat</span> <span class="o">=</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>report</code></td>
+<td><code>ComplianceReport</code></td>
+<td>—</td>
+<td>The report object to render</td>
+</tr>
+<tr>
+<td><code>fmt</code></td>
+<td><code>ReportFormat</code></td>
+<td><code>TERMINAL</code></td>
+<td>Output format</td>
+</tr>
+<tr>
+<td><code>output_path</code></td>
+<td><code>str \| Path \| None</code></td>
+<td><code>None</code></td>
+<td>If provided, the rendered content is written to this file path (not applicable for <code>TERMINAL</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return value:</strong></p>
+<ul>
+<li><code>TERMINAL</code> — renders directly to stdout and returns <code>""</code>.</li>
+<li><code>JSON</code> — returns the JSON string.</li>
+<li><code>HTML</code> — returns the HTML string.</li>
+</ul>
+<p>When <code>output_path</code> is given for <code>JSON</code> or <code>HTML</code>, the content is <strong>both</strong> returned
+<em>and</em> written to disk.</p>
+<hr />
+<h2 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h2>
+<h3 id="terminal-output">Terminal output<a class="headerlink" href="#terminal-output" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Prints a rich table to the terminal, returns &quot;&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">TERMINAL</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>
+</span></code></pre></div>
 <p>The terminal renderer produces:</p>
 <ul>
 <li>A summary panel showing the project name.</li>
@@ -1059,24 +1262,25 @@ def generate_report(
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">String only</label><label for="__tabbed_1_2">Write to file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-8
-import json
-from vigil_licenses.reporter import generate_report, ReportFormat</p>
-<p>json_str = generate_report(report, ReportFormat.JSON)
-data = json.loads(json_str)</p>
-<p>print(data["total_dependencies"])
-print(data["conflicts"][0]["severity"])   # "error" or "warning"
-```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">json_str</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;total_dependencies&quot;</span><span class="p">])</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;conflicts&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;severity&quot;</span><span class="p">])</span>   <span class="c1"># &quot;error&quot; or &quot;warning&quot;</span>
+</span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
-from pathlib import Path
-from vigil_licenses.reporter import generate_report, ReportFormat</p>
-<p>json_str = generate_report(
-    report, ReportFormat.JSON, output_path="report.json"
-)</p>
-<h1 id="reportjson-is-written-json_str-contains-the-same-content">report.json is written; json_str contains the same content<a class="headerlink" href="#reportjson-is-written-json_str-contains-the-same-content" title="Permanent link">&para;</a></h1>
-<p>```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">json_str</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;report.json&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># report.json is written; json_str contains the same content</span>
+</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1086,20 +1290,20 @@ their lowercase string equivalents (<code>"error"</code>, <code>"warning"</code>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">String only</label><label for="__tabbed_2_2">Write to file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
-from vigil_licenses.reporter import generate_report, ReportFormat</p>
-<p>html = generate_report(report, ReportFormat.HTML)
-assert "&lt;!DOCTYPE html&gt;" in html
-assert report.project_name in html
-```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">html</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">assert</span> <span class="s2">&quot;&lt;!DOCTYPE html&gt;&quot;</span> <span class="ow">in</span> <span class="n">html</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">assert</span> <span class="n">report</span><span class="o">.</span><span class="n">project_name</span> <span class="ow">in</span> <span class="n">html</span>
+</span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-6
-from pathlib import Path
-from vigil_licenses.reporter import generate_report, ReportFormat</p>
-<p>generate_report(report, ReportFormat.HTML, output_path="report.html")</p>
-<h1 id="open-reporthtml-in-a-browser-no-server-required">Open report.html in a browser — no server required<a class="headerlink" href="#open-reporthtml-in-a-browser-no-server-required" title="Permanent link">&para;</a></h1>
-<p>```</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">vigil_licenses.reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_report</span><span class="p">,</span> <span class="n">ReportFormat</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">generate_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">ReportFormat</span><span class="o">.</span><span class="n">HTML</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;report.html&quot;</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Open report.html in a browser — no server required</span>
+</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1114,25 +1318,20 @@ filesystem (<code>file://…</code>) or attached to a CI artifact without any ne
 <h2 id="private-helpers">Private Helpers<a class="headerlink" href="#private-helpers" title="Permanent link">&para;</a></h2>
 <p>These functions are not part of the public API but are documented here for contributors.</p>
 <h3 id="_render_terminalreport"><code>_render_terminal(report)</code><a class="headerlink" href="#_render_terminalreport" title="Permanent link">&para;</a></h3>
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
-def _render_terminal(report: ComplianceReport) -&gt; None
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Uses `rich.console.Console` and `rich.table.Table` to render the compliance report
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>to stdout.  The function writes directly to the console and returns `None`.  It is
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>called by `generate_report()` when `fmt == ReportFormat.TERMINAL`.
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>### `_render_json(report)`
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>def _render_json(report: ComplianceReport) -&gt; str
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_terminal</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Uses <code>rich.console.Console</code> and <code>rich.table.Table</code> to render the compliance report
+to stdout.  The function writes directly to the console and returns <code>None</code>.  It is
+called by <code>generate_report()</code> when <code>fmt == ReportFormat.TERMINAL</code>.</p>
+<h3 id="_render_jsonreport"><code>_render_json(report)</code><a class="headerlink" href="#_render_jsonreport" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_json</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</span></code></pre></div>
 <p>Delegates to Pydantic:</p>
-<p>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-2
-return report.model_dump_json(indent=2)
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>### `_render_html(report)`
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>```vigil/vigil-licenses/src/vigil_licenses/reporter.py#L1-4
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>def _render_html(report: ComplianceReport) -&gt; str
-</span></code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">return</span> <span class="n">report</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_render_htmlreport"><code>_render_html(report)</code><a class="headerlink" href="#_render_htmlreport" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_render_html</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">ComplianceReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</span></code></pre></div>
 <p>Renders the module-level <code>_HTML_TEMPLATE</code> string using <code>jinja2.Template</code>.  The
 template receives the following context variables:</p>
 <table>
