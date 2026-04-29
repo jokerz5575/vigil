@@ -5,10 +5,12 @@ and a compatibility conflict matrix.
 
 from __future__ import annotations
 
+from typing import Any
+
 from vigil_core.models import ConflictSeverity, LicenseConflict, LicenseFamily, LicenseInfo
 
 # Core SPDX license definitions
-_LICENSE_DATA: dict[str, dict] = {
+_LICENSE_DATA: dict[str, dict[str, Any]] = {
     "MIT": {
         "name": "MIT License",
         "family": LicenseFamily.PERMISSIVE,
@@ -172,6 +174,43 @@ _LICENSE_ALIASES: dict[str, str] = {
     "cc0": "CC0-1.0",
     "psf": "PSF-2.0",
     "python software foundation license": "PSF-2.0",
+    # Full classifier leaf strings used by popular PyPI packages
+    "mit license": "MIT",
+    "mit no attribution": "MIT-0",
+    "bsd 2-clause license": "BSD-2-Clause",
+    "bsd 3-clause license": "BSD-3-Clause",
+    "2-clause bsd license": "BSD-2-Clause",
+    "3-clause bsd license": "BSD-3-Clause",
+    "isc license (iscl)": "ISC",
+    "mozilla public license 2.0 (mpl 2.0)": "MPL-2.0",
+    "the unlicense (unlicense)": "Unlicense",
+    "the unlicense": "Unlicense",
+    "gnu general public license v2 (gplv2)": "GPL-2.0",
+    "gnu general public license v3 (gplv3)": "GPL-3.0",
+    "gnu general public license v2 or later (gplv2+)": "GPL-2.0",
+    "gnu general public license v3 or later (gplv3+)": "GPL-3.0",
+    "gnu lesser general public license v2 (lgplv2)": "LGPL-2.1",
+    "gnu lesser general public license v3 (lgplv3)": "LGPL-3.0",
+    "gnu lesser general public license v2 or later (lgplv2+)": "LGPL-2.1",
+    "gnu lesser general public license v3 or later (lgplv3+)": "LGPL-3.0",
+    "gnu affero general public license v3 (agplv3)": "AGPL-3.0",
+    "gnu affero general public license v3 or later (agplv3+)": "AGPL-3.0",
+    "historical permission notice and disclaimer (hpnd)": "HPND",
+    "apache license, version 2": "Apache-2.0",
+    "apache license 2.0": "Apache-2.0",
+    "eclipse public license 2.0 (epl-2.0)": "EPL-2.0",
+    "european union public licence 1.2 (eupl 1.2)": "EUPL-1.2",
+    "creativecommons zero v1.0 universal": "CC0-1.0",
+    "creative commons cc0 1.0 universal": "CC0-1.0",
+    "boost software license 1.0 (bsl-1.0)": "BSL-1.0",
+    "zope public license": "ZPL-2.0",
+    "python license (compat. mit)": "MIT",
+    "lgpl with exceptions or zpl": "LGPL-2.1",
+    "lgplv2 with exceptions": "LGPL-2.1",
+    "new bsd": "BSD-3-Clause",
+    "freebsd license": "BSD-2-Clause",
+    "artistic license 2.0": "Artistic-2.0",
+    "cddl 1.0": "CDDL-1.0",
 }
 
 
@@ -243,7 +282,10 @@ class LicenseDatabase:
                 license_spdx=license_spdx,
                 severity=ConflictSeverity.ERROR,
                 reason=f"{license_spdx} is not in your allowed license list.",
-                recommendation=f"Add {license_spdx} to your policy allow list or find an alternative.",
+                recommendation=(
+                    f"Add {license_spdx} to your policy allow list "
+                    "or find an alternative."
+                ),
             )
 
         if info is None:

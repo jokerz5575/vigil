@@ -1,13 +1,14 @@
 """
 LicenseScanner: scans a project's dependencies and detects license conflicts.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
+from typing import Any
 
 from vigil_core.license_db import LicenseDatabase
-from vigil_core.models import ComplianceReport, LicenseConflict, ConflictSeverity
+from vigil_core.models import ComplianceReport, ConflictSeverity, LicenseConflict
 from vigil_core.package_resolver import PackageResolver
 
 
@@ -24,9 +25,9 @@ class LicensePolicy:
 
     def __init__(
         self,
-        allow: Optional[list[str]] = None,
-        block: Optional[list[str]] = None,
-        warn: Optional[list[str]] = None,
+        allow: list[str] | None = None,
+        block: list[str] | None = None,
+        warn: list[str] | None = None,
         fail_on_unknown: bool = False,
     ) -> None:
         self.allow = allow
@@ -35,7 +36,7 @@ class LicensePolicy:
         self.fail_on_unknown = fail_on_unknown
 
     @classmethod
-    def from_dict(cls, data: dict) -> "LicensePolicy":
+    def from_dict(cls, data: dict[str, Any]) -> LicensePolicy:
         policy = data.get("policy", data)
         return cls(
             allow=policy.get("allow"),
@@ -45,14 +46,13 @@ class LicensePolicy:
         )
 
     @classmethod
-    def from_yaml(cls, path: str | Path) -> "LicensePolicy":
+    def from_yaml(cls, path: str | Path) -> LicensePolicy:
         try:
             import yaml
-        except ImportError:
+        except ImportError as exc:
             raise ImportError(
-                "PyYAML is required to load policy from YAML. "
-                "Install it with: pip install pyyaml"
-            )
+                "PyYAML is required to load policy from YAML. Install it with: pip install pyyaml"
+            ) from exc
         with open(path) as f:
             data = yaml.safe_load(f)
         return cls.from_dict(data)
@@ -70,8 +70,8 @@ class LicenseScanner:
 
     def __init__(
         self,
-        policy: Optional[LicensePolicy] = None,
-        license_db: Optional[LicenseDatabase] = None,
+        policy: LicensePolicy | None = None,
+        license_db: LicenseDatabase | None = None,
     ) -> None:
         self._policy = policy or LicensePolicy()
         self._db = license_db or LicenseDatabase()
@@ -79,8 +79,8 @@ class LicenseScanner:
 
     def scan(
         self,
-        requirements_file: Optional[str] = None,
-        project_name: Optional[str] = None,
+        requirements_file: str | None = None,
+        project_name: str | None = None,
     ) -> ComplianceReport:
         """
         Scan dependencies and return a full ComplianceReport.
@@ -105,13 +105,15 @@ class LicenseScanner:
                 raw = dep.license_spdx or "UNKNOWN"
                 unknown_licenses.append(f"{dep.name} ({raw})")
                 if self._policy.fail_on_unknown:
-                    conflicts.append(LicenseConflict(
-                        package=dep.name,
-                        license_spdx=raw,
-                        severity=ConflictSeverity.ERROR,
-                        reason=f"License '{raw}' could not be identified.",
-                        recommendation="Manually verify the license for this package.",
-                    ))
+                    conflicts.append(
+                        LicenseConflict(
+                            package=dep.name,
+                            license_spdx=raw,
+                            severity=ConflictSeverity.ERROR,
+                            reason=f"License '{raw}' could not be identified.",
+                            recommendation="Manually verify the license for this package.",
+                        )
+                    )
                 continue
 
             spdx = dep.license_info.spdx_id
@@ -121,12 +123,14 @@ class LicenseScanner:
 
             # Check warn list
             if spdx in self._policy.warn:
-                conflicts.append(LicenseConflict(
-                    package=dep.name,
-                    license_spdx=spdx,
-                    severity=ConflictSeverity.WARNING,
-                    reason=f"{spdx} is flagged for review in your policy.",
-                ))
+                conflicts.append(
+                    LicenseConflict(
+                        package=dep.name,
+                        license_spdx=spdx,
+                        severity=ConflictSeverity.WARNING,
+                        reason=f"{spdx} is flagged for review in your policy.",
+                    )
+                )
                 continue
 
             # Full conflict check

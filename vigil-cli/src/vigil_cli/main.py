@@ -1,11 +1,12 @@
 """
 Vigil CLI — Open source compliance, automated.
 """
+
+# ruff: noqa: B008
 from __future__ import annotations
 
 from enum import Enum
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -30,31 +31,41 @@ class OutputFormat(str, Enum):
 
 @app.command()
 def scan(
-    requirements: Optional[Path] = typer.Option(
-        None, "--requirements", "-r",
+    requirements: Path | None = typer.Option(
+        None,
+        "--requirements",
+        "-r",
         help="Path to requirements.txt. Defaults to scanning the current environment.",
     ),
-    policy: Optional[Path] = typer.Option(
-        None, "--policy", "-p",
+    policy: Path | None = typer.Option(
+        None,
+        "--policy",
+        "-p",
         help="Path to vigil.yaml policy file.",
     ),
     format: OutputFormat = typer.Option(
-        OutputFormat.terminal, "--format", "-f",
+        OutputFormat.terminal,
+        "--format",
+        "-f",
         help="Output format.",
     ),
-    output: Optional[Path] = typer.Option(
-        None, "--output", "-o",
+    output: Path | None = typer.Option(
+        None,
+        "--output",
+        "-o",
         help="Write report to this file.",
     ),
-    project: Optional[str] = typer.Option(
-        None, "--project",
+    project: str | None = typer.Option(
+        None,
+        "--project",
         help="Project name to include in the report.",
     ),
     fail_on_warning: bool = typer.Option(
-        False, "--fail-on-warning",
+        False,
+        "--fail-on-warning",
         help="Exit with code 1 on warnings as well as errors.",
     ),
-):
+) -> None:
     """
     Scan project dependencies for license compliance issues.
 
@@ -66,8 +77,8 @@ def scan(
 
         vigil scan --format html --output report.html
     """
-    from vigil_licenses.scanner import LicenseScanner, LicensePolicy
-    from vigil_licenses.reporter import generate_report, ReportFormat
+    from vigil_licenses.reporter import ReportFormat, generate_report
+    from vigil_licenses.scanner import LicensePolicy, LicenseScanner
 
     # Load policy
     lic_policy = None
@@ -105,22 +116,20 @@ def scan(
 
 @licenses_app.command("check")
 def licenses_check(
-    requirements: Optional[Path] = typer.Option(None, "--requirements", "-r"),
-    policy: Optional[Path] = typer.Option(None, "--policy", "-p"),
-):
+    requirements: Path | None = typer.Option(None, "--requirements", "-r"),
+    policy: Path | None = typer.Option(None, "--policy", "-p"),
+) -> None:
     """Check for license conflicts (alias for `vigil scan`)."""
     # Delegate to scan
-    from vigil_licenses.scanner import LicenseScanner, LicensePolicy
-    from vigil_licenses.reporter import generate_report, ReportFormat
+    from vigil_licenses.reporter import ReportFormat, generate_report
+    from vigil_licenses.scanner import LicensePolicy, LicenseScanner
 
     lic_policy = None
     if policy and policy.exists():
         lic_policy = LicensePolicy.from_yaml(policy)
 
     scanner = LicenseScanner(policy=lic_policy)
-    report = scanner.scan(
-        requirements_file=str(requirements) if requirements else None
-    )
+    report = scanner.scan(requirements_file=str(requirements) if requirements else None)
     generate_report(report, fmt=ReportFormat.TERMINAL)
 
     if report.has_errors:
@@ -129,14 +138,14 @@ def licenses_check(
 
 @licenses_app.command("report")
 def licenses_report(
-    requirements: Optional[Path] = typer.Option(None, "--requirements", "-r"),
+    requirements: Path | None = typer.Option(None, "--requirements", "-r"),
     format: OutputFormat = typer.Option(OutputFormat.html, "--format", "-f"),
     output: Path = typer.Option(Path("vigil-report.html"), "--output", "-o"),
-    project: Optional[str] = typer.Option(None, "--project"),
-):
+    project: str | None = typer.Option(None, "--project"),
+) -> None:
     """Generate a standalone compliance report file."""
+    from vigil_licenses.reporter import ReportFormat, generate_report
     from vigil_licenses.scanner import LicenseScanner
-    from vigil_licenses.reporter import generate_report, ReportFormat
 
     scanner = LicenseScanner()
     with console.status("[bold cyan]Scanning...[/bold cyan]"):
@@ -155,9 +164,10 @@ def licenses_report(
 
 
 @app.command()
-def version():
+def version() -> None:
     """Show the Vigil version."""
     from vigil_cli import __version__
+
     console.print(f"vigil [cyan]{__version__}[/cyan]")
 
 

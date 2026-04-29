@@ -2,13 +2,13 @@
 Resolves installed Python package metadata including license information.
 Works with pip, importlib.metadata, and PyPI JSON API as fallback.
 """
+
 from __future__ import annotations
 
 import importlib.metadata
-from typing import Optional
 
-from vigil_core.models import DependencyInfo
 from vigil_core.license_db import LicenseDatabase
+from vigil_core.models import DependencyInfo
 
 
 class PackageResolver:
@@ -17,7 +17,7 @@ class PackageResolver:
     Uses importlib.metadata as primary source, with PyPI API as fallback.
     """
 
-    def __init__(self, license_db: Optional[LicenseDatabase] = None) -> None:
+    def __init__(self, license_db: LicenseDatabase | None = None) -> None:
         self._db = license_db or LicenseDatabase()
 
     def resolve_installed(self) -> list[DependencyInfo]:
@@ -35,16 +35,9 @@ class PackageResolver:
         """
         Parse a requirements.txt and resolve metadata for each listed package.
         """
-        import subprocess
-        import sys
-
         packages = []
         with open(requirements_path) as f:
-            lines = [
-                line.strip()
-                for line in f
-                if line.strip() and not line.startswith("#")
-            ]
+            lines = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
         for line in lines:
             # Strip version specifiers to get package name
@@ -57,16 +50,16 @@ class PackageResolver:
                     packages.append(info)
             except importlib.metadata.PackageNotFoundError:
                 # Package listed but not installed; add as unknown
-                packages.append(DependencyInfo(
-                    name=name,
-                    version="unknown",
-                    is_direct=True,
-                ))
+                packages.append(
+                    DependencyInfo(
+                        name=name,
+                        version="unknown",
+                        is_direct=True,
+                    )
+                )
         return packages
 
-    def _from_distribution(
-        self, dist: importlib.metadata.Distribution
-    ) -> Optional[DependencyInfo]:
+    def _from_distribution(self, dist: importlib.metadata.Distribution) -> DependencyInfo | None:
         """Build a DependencyInfo from an importlib.metadata Distribution."""
         try:
             meta = dist.metadata
@@ -87,7 +80,7 @@ class PackageResolver:
 
             # Fall back to Classifier: License :: ... entries
             if not license_spdx:
-                for classifier in (meta.get_all("Classifier") or []):
+                for classifier in meta.get_all("Classifier") or []:
                     if classifier.startswith("License ::"):
                         parts = classifier.split(" :: ")
                         if len(parts) >= 3:

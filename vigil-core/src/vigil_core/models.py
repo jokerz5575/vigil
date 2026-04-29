@@ -1,19 +1,20 @@
 """
 Shared Pydantic models for the Vigil compliance toolkit.
 """
+
 from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import Optional
 
 from pydantic import BaseModel, Field
 
 
 class LicenseFamily(str, Enum):
     """High-level license family classification."""
-    PERMISSIVE = "permissive"       # MIT, Apache-2.0, BSD
-    WEAK_COPYLEFT = "weak_copyleft" # LGPL, MPL
+
+    PERMISSIVE = "permissive"  # MIT, Apache-2.0, BSD
+    WEAK_COPYLEFT = "weak_copyleft"  # LGPL, MPL
     STRONG_COPYLEFT = "strong_copyleft"  # GPL
     NETWORK_COPYLEFT = "network_copyleft"  # AGPL, SSPL
     PROPRIETARY = "proprietary"
@@ -23,6 +24,7 @@ class LicenseFamily(str, Enum):
 
 class LicenseInfo(BaseModel):
     """Represents a resolved software license."""
+
     spdx_id: str = Field(..., description="SPDX license identifier, e.g. 'MIT'")
     name: str = Field(..., description="Full license name")
     family: LicenseFamily
@@ -32,7 +34,7 @@ class LicenseInfo(BaseModel):
     requires_attribution: bool = False
     requires_share_alike: bool = False
     network_clause: bool = False  # True for AGPL, SSPL
-    url: Optional[str] = None
+    url: str | None = None
 
     def is_permissive(self) -> bool:
         return self.family == LicenseFamily.PERMISSIVE
@@ -47,16 +49,17 @@ class LicenseInfo(BaseModel):
 
 class DependencyInfo(BaseModel):
     """Represents a resolved package dependency."""
+
     name: str
     version: str
-    license_spdx: Optional[str] = None
-    license_info: Optional[LicenseInfo] = None
+    license_spdx: str | None = None
+    license_info: LicenseInfo | None = None
     is_direct: bool = True
-    homepage: Optional[str] = None
-    repository: Optional[str] = None
-    author: Optional[str] = None
-    description: Optional[str] = None
-    pypi_url: Optional[str] = None
+    homepage: str | None = None
+    repository: str | None = None
+    author: str | None = None
+    description: str | None = None
+    pypi_url: str | None = None
 
     @property
     def display_name(self) -> str:
@@ -64,24 +67,26 @@ class DependencyInfo(BaseModel):
 
 
 class ConflictSeverity(str, Enum):
-    ERROR = "error"     # Must fix — e.g. GPL in a proprietary project
-    WARNING = "warning" # Should review — e.g. LGPL
-    INFO = "info"       # Informational
+    ERROR = "error"  # Must fix — e.g. GPL in a proprietary project
+    WARNING = "warning"  # Should review — e.g. LGPL
+    INFO = "info"  # Informational
 
 
 class LicenseConflict(BaseModel):
     """Represents a detected license conflict between dependencies."""
+
     package: str
     license_spdx: str
     severity: ConflictSeverity
     reason: str
-    recommendation: Optional[str] = None
+    recommendation: str | None = None
 
 
 class ComplianceReport(BaseModel):
     """Full compliance scan report."""
+
     generated_at: datetime = Field(default_factory=datetime.utcnow)
-    project_name: Optional[str] = None
+    project_name: str | None = None
     total_dependencies: int = 0
     direct_dependencies: int = 0
     dependencies: list[DependencyInfo] = Field(default_factory=list)

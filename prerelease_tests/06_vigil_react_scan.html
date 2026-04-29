@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vigil Compliance Report</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #1a1a2e; }
+  h1 { color: #0a3d62; } h2 { color: #1e3799; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.4rem; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th { background: #1e3799; color: white; padding: 0.6rem 1rem; text-align: left; }
+  td { padding: 0.5rem 1rem; border-bottom: 1px solid #e0e0e0; }
+  tr:hover { background: #f5f6fa; }
+  .badge { padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+  .error { background: #ff4757; color: white; }
+  .warning { background: #ffa502; color: white; }
+  .info { background: #1e90ff; color: white; }
+  .ok { color: #2ed573; font-weight: bold; }
+  .summary { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .stat { background: #f5f6fa; border-radius: 8px; padding: 1rem 1.5rem; text-align: center; }
+  .stat-num { font-size: 2rem; font-weight: bold; color: #1e3799; }
+  .stat-label { font-size: 0.85rem; color: #636e72; }
+  footer { margin-top: 2rem; font-size: 0.8rem; color: #b2bec3; text-align: center; }
+</style>
+</head>
+<body>
+<h1>🛡️ Vigil Compliance Report</h1>
+<p>Generated: 2026-04-29 12:33 UTC</p>
+<div class="summary">
+  <div class="stat"><div class="stat-num">64</div><div class="stat-label">Dependencies</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Unique Licenses</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Errors</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Warnings</div></div>
+</div>
+
+<h2>License Issues</h2>
+<table>
+  <tr><th>Severity</th><th>Package</th><th>License</th><th>Reason</th><th>Recommendation</th></tr>
+  
+  <tr>
+    <td><span class="badge ConflictSeverity.WARNING">WARNING</span></td>
+    <td><strong>certifi</strong></td>
+    <td>MPL-2.0</td>
+    <td>MPL-2.0 is flagged for review in your policy.</td>
+    <td>—</td>
+  </tr>
+  
+</table>
+
+<h2>License Breakdown</h2>
+<table>
+  <tr><th>SPDX License</th><th>Packages</th></tr>
+  
+  <tr><td>MIT</td><td>6</td></tr>
+  
+  <tr><td>Apache-2.0</td><td>5</td></tr>
+  
+  <tr><td>BSD-3-Clause</td><td>3</td></tr>
+  
+  <tr><td>ISC</td><td>2</td></tr>
+  
+  <tr><td>MPL-2.0</td><td>1</td></tr>
+  
+</table>
+
+<h2>Unknown Licenses (47)</h2>
+<ul><li>pip (UNKNOWN)</li><li>ptyprocess (UNKNOWN)</li><li>distlib (PSF-2.0)</li><li>uv (UNKNOWN)</li><li>tomli_w (UNKNOWN)</li><li>pyproject_hooks (UNKNOWN)</li><li>Pygments (UNKNOWN)</li><li>pycparser (UNKNOWN)</li><li>platformdirs (UNKNOWN)</li><li>pathspec (UNKNOWN)</li><li>packaging (UNKNOWN)</li><li>more-itertools (UNKNOWN)</li><li>mdurl (UNKNOWN)</li><li>jeepney (UNKNOWN)</li><li>jaraco.context (UNKNOWN)</li><li>idna (UNKNOWN)</li><li>filelock (UNKNOWN)</li><li>click (UNKNOWN)</li><li>userpath (UNKNOWN)</li><li>python-discovery (Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.)</li><li>markdown-it-py (UNKNOWN)</li><li>jaraco.functools (UNKNOWN)</li><li>jaraco.classes (UNKNOWN)</li><li>hatchling (UNKNOWN)</li><li>cffi (UNKNOWN)</li><li>anyio (UNKNOWN)</li><li>virtualenv (UNKNOWN)</li><li>cryptography (UNKNOWN)</li><li>SecretStorage (UNKNOWN)</li><li>keyring (UNKNOWN)</li><li>hatch (UNKNOWN)</li><li>typing_extensions (UNKNOWN)</li><li>iniconfig (UNKNOWN)</li><li>annotated-types (UNKNOWN)</li><li>typing-inspection (UNKNOWN)</li><li>pytest (UNKNOWN)</li><li>pydantic_core (UNKNOWN)</li><li>pydantic (UNKNOWN)</li><li>MarkupSafe (UNKNOWN)</li><li>ruff (UNKNOWN)</li><li>mypy_extensions (UNKNOWN)</li><li>librt (UNKNOWN)</li><li>annotated-doc (UNKNOWN)</li><li>pytest-asyncio (UNKNOWN)</li><li>mypy (UNKNOWN)</li><li>typer (UNKNOWN)</li><li>pytest-cov (UNKNOWN)</li></ul>
+
+<footer>Generated by <strong>Vigil</strong> — Open source compliance, automated.</footer>
+</body>
+</html>

@@ -6,7 +6,6 @@ from __future__ import annotations
 
 from enum import Enum
 from pathlib import Path
-from typing import Optional
 
 from vigil_core.models import ComplianceReport, ConflictSeverity
 
@@ -20,7 +19,7 @@ class ReportFormat(str, Enum):
 def generate_report(
     report: ComplianceReport,
     fmt: ReportFormat = ReportFormat.TERMINAL,
-    output_path: Optional[str | Path] = None,
+    output_path: str | Path | None = None,
 ) -> str:
     """
     Generate a compliance report in the specified format.
@@ -49,16 +48,16 @@ def generate_report(
 
 def _render_terminal(report: ComplianceReport) -> None:
     """Render a rich terminal report."""
-    from rich.console import Console
-    from rich.table import Table
     from rich import box
+    from rich.console import Console
     from rich.panel import Panel
+    from rich.table import Table
     from rich.text import Text
 
     console = Console()
 
     # Header
-    title = f"Vigil Compliance Report"
+    title = "Vigil Compliance Report"
     if report.project_name:
         title += f" — {report.project_name}"
     console.print()
