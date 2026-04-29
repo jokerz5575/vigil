@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Core shared library for the Vigil compliance toolkit"
 readme = "README.md"
 license = { text = "Apache-2.0" }
-authors = [{ name = "Your Name", email = "you@example.com" }]
+authors = [{ name = "Schmidt Peter Daniel", email = "peterschmidt5575@gmail.com" }]
 keywords = ["compliance", "license", "sbom", "supply-chain", "security"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -33,15 +33,17 @@ dependencies = [
 dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pyyaml>=6.0",
     "ruff>=0.4.0",
     "mypy>=1.10.0",
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/vigil"
+Homepage = "https://github.com/schmidtpeterdaniel/vigil"
 Documentation = "https://vigil.readthedocs.io"
-Repository = "https://github.com/yourusername/vigil"
-Issues = "https://github.com/yourusername/vigil/issues"
+Repository = "https://github.com/schmidtpeterdaniel/vigil"
+Issues = "https://github.com/schmidtpeterdaniel/vigil/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/vigil_core"]

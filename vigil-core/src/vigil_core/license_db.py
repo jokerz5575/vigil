@@ -2,9 +2,10 @@
 Built-in license database with SPDX identifiers, metadata,
 and a compatibility conflict matrix.
 """
+
 from __future__ import annotations
 
-from vigil_core.models import LicenseFamily, LicenseInfo, LicenseConflict, ConflictSeverity
+from vigil_core.models import ConflictSeverity, LicenseConflict, LicenseFamily, LicenseInfo
 
 # Core SPDX license definitions
 _LICENSE_DATA: dict[str, dict] = {
@@ -181,8 +182,7 @@ class LicenseDatabase:
 
     def __init__(self) -> None:
         self._licenses: dict[str, LicenseInfo] = {
-            spdx_id: LicenseInfo(spdx_id=spdx_id, **data)
-            for spdx_id, data in _LICENSE_DATA.items()
+            spdx_id: LicenseInfo(spdx_id=spdx_id, **data) for spdx_id, data in _LICENSE_DATA.items()
         }
 
     def get(self, spdx_id: str) -> LicenseInfo | None:
@@ -249,7 +249,20 @@ class LicenseDatabase:
         if info is None:
             return None
 
-        # Warn on network copyleft (AGPL, SSPL) even without explicit policy
+        # SSPL must be checked BEFORE the generic network-copyleft path because
+        # SSPL-1.0.family == NETWORK_COPYLEFT; without this guard it would only
+        # produce a WARNING instead of the intended ERROR.
+        if license_spdx == "SSPL-1.0":
+            return LicenseConflict(
+                package=package_name,
+                license_spdx=license_spdx,
+                severity=ConflictSeverity.ERROR,
+                reason="SSPL-1.0 is not OSI-approved and restricts commercial cloud usage.",
+                recommendation="Find an alternative package.",
+            )
+
+        # Warn on any other network-copyleft license (e.g. AGPL) even without
+        # an explicit policy — the user should always review these.
         if info.family == LicenseFamily.NETWORK_COPYLEFT:
             return LicenseConflict(
                 package=package_name,
@@ -261,16 +274,6 @@ class LicenseDatabase:
                     "to release your source code."
                 ),
                 recommendation="Consult your legal team before using in a SaaS product.",
-            )
-
-        # Warn on SSPL specifically (not OSI-approved)
-        if license_spdx == "SSPL-1.0":
-            return LicenseConflict(
-                package=package_name,
-                license_spdx=license_spdx,
-                severity=ConflictSeverity.ERROR,
-                reason="SSPL-1.0 is not OSI-approved and restricts commercial cloud usage.",
-                recommendation="Find an alternative package.",
             )
 
         return None

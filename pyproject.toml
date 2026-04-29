@@ -14,6 +14,21 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 testpaths = ["tests"]
 addopts = "-v --tb=short"
 
+[tool.coverage.run]
+branch = true
+source = ["vigil_core", "vigil_licenses"]
+omit = ["*/tests/*", "*/__init__.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "@(abc\\.)?abstractmethod",
+]
+
 [tool.mypy]
 python_version = "3.9"
 strict = true
