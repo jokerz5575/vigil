@@ -20,8 +20,8 @@ Vigil brings it all under one roof — installable piece by piece, or all at onc
 
 | Package | Description | PyPI |
 |---|---|---|
-| `vigil-core` | Shared license DB, SBOM parsing, CVE feeds | [![PyPI](https://img.shields.io/pypi/v/vigil-core)](https://pypi.org/project/vigil-core) |
-| `vigil-licenses` | License resolution, conflict detection & drift monitoring | [![PyPI](https://img.shields.io/pypi/v/vigil-licenses)](https://pypi.org/project/vigil-licenses) |
+| `vigil-core` | Shared license DB, SBOM parsing, CVE feeds | [![PyPI](https://img.shields.io/pypi/v/vigil-core)](https://pypi.org/project/ossentinel-core) |
+| `vigil-licenses` | License resolution, conflict detection & drift monitoring | [![PyPI](https://img.shields.io/pypi/v/vigil-licenses)](https://pypi.org/project/ossentinel-licenses) |
 | `vigil-sbom` | SBOM generation & validation (SPDX + CycloneDX) | 🚧 Coming soon |
 | `vigil-policy` | Policy-as-code enforcement for CI pipelines | 🚧 Coming soon |
 | `vigil-supply` | Provenance verification & typosquat detection | 🚧 Coming soon |
