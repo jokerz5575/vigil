@@ -21,15 +21,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -e ./vigil-core[dev]
-          pip install -e ./vigil-licenses[dev]
-          pip install -e ./vigil-cli[dev]
+          pip install -e ./ossentinel-core[dev]
+          pip install -e ./ossentinel-licenses[dev]
+          pip install -e ./ossentinel-cli[dev]
           pip install pytest pytest-asyncio
 
       - name: Lint with ruff
         run: |
           pip install ruff
-          ruff check vigil-core/src vigil-licenses/src vigil-cli/src
+          ruff check ossentinel-core/src ossentinel-licenses/src ossentinel-cli/src
 
       - name: Run tests
         run: pytest tests/ -v
